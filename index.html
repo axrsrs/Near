@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-VxHd1gu4nvz/U9HHehUj6UMoMdRuyE/eNSPq1K31+zA=' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https: data: blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-XFgwyDpZ/3AwOwk66jea1RQBv0aJ5f4X6QUVVfQ+fEI=' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https: data: blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,7 +54,7 @@ button,input,textarea{font-family:inherit}
 .luxury-bg .product-card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(0,0,0,.28),0 0 0 1px rgba(201,162,39,.12) inset!important;border-color:rgba(201,162,39,.22);}
 .luxury-bg .product-image{background-color:rgba(255,255,255,.025)!important;}
 @media(max-width:640px){.luxury-bg::after{background-size:55px 55px;opacity:.12}.luxury-bg .product-card:hover{transform:none;}}
-.category-scroll{display:flex;gap:9px;overflow-x:auto;overflow-y:hidden;padding:5px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;cursor:grab;overscroll-behavior-x:contain;touch-action:pan-x}.category-scroll:active{cursor:grabbing}
+.category-scroll{display:flex;gap:9px;overflow-x:auto;overflow-y:hidden;padding:5px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;cursor:grab;overscroll-behavior-x:contain;touch-action:pan-x pan-y pinch-zoom}.category-scroll:active{cursor:grabbing}
 .category-chip{position:relative;flex-shrink:0;overflow:hidden;border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:9px 15px;font-size:12px;font-weight:700;white-space:nowrap;transition:transform .28s cubic-bezier(.22,1,.36,1),background .28s ease,border-color .28s ease,box-shadow .28s ease,color .28s ease,opacity .28s ease;-webkit-tap-highlight-color:transparent;backdrop-filter:blur(12px)}
 .category-chip::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);pointer-events:none}
 .category-chip:hover::before{animation:categoryLight .65s ease forwards}
@@ -75,7 +75,7 @@ button,input,textarea{font-family:inherit}
 .gallery-arrow:hover,.detail-gallery-arrow:hover,.lightbox-nav:hover{background:rgba(10,10,12,.8);transform:translateY(-50%) scale(1.05)}
 .gallery-dots,.detail-gallery-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:5px;padding:5px 8px;border-radius:999px;background:rgba(10,10,12,.42);backdrop-filter:blur(8px);z-index:5}
 .gallery-dot,.detail-gallery-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);transition:.25s}.gallery-dot.active,.detail-gallery-dot.active{width:18px;border-radius:5px;background:#fff}
-.detail-gallery{position:relative;width:100%;height:270px;overflow:hidden;touch-action:pan-y;cursor:zoom-in}
+.detail-gallery{position:relative;width:100%;height:270px;overflow:hidden;touch-action:pan-y pinch-zoom;cursor:zoom-in}
 .image-lightbox{background:rgba(8,8,10,.42);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
 .image-lightbox-card{max-width:min(96vw,1100px);max-height:92vh;position:relative;display:flex;align-items:center;justify-content:center}
 .image-lightbox-card img{max-width:92vw;max-height:88vh;object-fit:contain;user-select:none;-webkit-user-drag:none}
@@ -106,7 +106,7 @@ textarea.admin-input{min-height:78px;resize:vertical}
 
 /* RESPONSIVE / MOBILE / TABLET / DESKTOP */
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{min-width:320px;overscroll-behavior-x:none;touch-action:pan-y}
+body{min-width:320px;overscroll-behavior-x:none;touch-action:manipulation}
 button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}
 button,a{touch-action:manipulation}
 .safe-top{padding-top:env(safe-area-inset-top)}
@@ -172,7 +172,7 @@ button,a{touch-action:manipulation}
 }
 /* Prevent iOS Safari input zoom and horizontal overflow */
 @supports (-webkit-touch-callout:none){
-  input,textarea,select{font-size:16px}
+  input,textarea,select,.admin-input,.adm-input,.adm-search input,.adm-select,.adm-priceedit input,.adm-bulk-in,.ui-dlg-input,.search-input{font-size:16px!important}
 }
 
 /* LUXURY ANIMATED BACKGROUND - VISUAL ONLY */
@@ -742,8 +742,8 @@ header{animation:appleRise .7s cubic-bezier(.2,.8,.2,1) both}
 /* Mobilde yönetim paneli kaydırma düzeltmesi: esnek sütunun içindeki kaydırma alanı küçülebilmeli */
 .adm-shell{height:100%;height:100dvh;max-height:100dvh}
 .adm-main{min-height:0;overflow:hidden}
-.adm-content{min-height:0;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior-y:contain}
-.adm-drawer-body,.adm-modal{-webkit-overflow-scrolling:touch;touch-action:pan-y;min-height:0}
+.adm-content{min-height:0;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior-y:contain}
+.adm-drawer-body,.adm-modal{-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;min-height:0}
 .adm-side{touch-action:pan-x pan-y}
 
 </style>
@@ -752,6 +752,14 @@ header{animation:appleRise .7s cubic-bezier(.2,.8,.2,1) both}
 .adm-side .storage-warn{margin:0 0 8px}
 .storage-warn-sm{display:none;margin:10px 12px 0;flex-shrink:0}
 @media(max-width:900px){.adm-side .storage-warn{display:none}.storage-warn-sm{display:block}}
+</style>
+<style id="cur-grid">
+.adm-curgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;flex:1 1 100%;min-width:0}
+.adm-curfield{min-width:0}
+.adm-curfield .adm-input{width:100%}
+.adm-curfield.is-missing .adm-input{border-color:#FF9F0A;background:#FFFBF2}
+.adm-curfield.is-missing > span{color:#C76A00}
+.adm-total .adm-curgrid{flex:1 1 260px}
 </style>
 </head>
 <body>
@@ -2386,6 +2394,32 @@ function switchEditCurrency(d, next) {
             const [mt, totals] = swap(p.manualTotal, p.totals);
             return { ...it, price: { ...p, manualTotal: mt, totals, parts: p.parts.map(pt => { const [a, prices] = swap(pt.amount, pt.prices); return { ...pt, amount: a, prices }; }) } };
         }) })) };
+}
+/* Kur kapalıyken TL, USD veya EUR fiyatı eksik ürünleri listeler (uyarı içindir, kaydı engellemez). */
+function missingCurrencyPrices(d) {
+    const out = [];
+    if (!d || curEnabled(d))
+        return out;
+    const has = v => priceNumber(v) !== null;
+    for (const c of (d.categories || []))
+        for (const it of (c.items || [])) {
+            const p = normalizePrice(it.price), miss = new Set();
+            for (const pt of p.parts) {
+                if (pt.contactOnly)
+                    continue;
+                if (!has(pt.amount)) miss.add("TL");
+                if (!has((pt.prices || {}).USD)) miss.add("USD");
+                if (!has((pt.prices || {}).EUR)) miss.add("EUR");
+            }
+            if (p.autoCollect === false && p.parts.length > 1) {
+                if (!has(p.manualTotal)) miss.add("TL");
+                if (!has((p.totals || {}).USD)) miss.add("USD");
+                if (!has((p.totals || {}).EUR)) miss.add("EUR");
+            }
+            if (miss.size)
+                out.push({ cid: c.id, id: it.id, name: it.name || "Adsız ürün", missing: ["TL", "USD", "EUR"].filter(x => miss.has(x)) });
+        }
+    return out;
 }
 function getCurrencyByData(source) {
     const id = source?.currency?.selected || "TRY";
@@ -4602,6 +4636,9 @@ function App() {
                 const freshStart = !initial;
                 if (freshStart)
                     initial = blankTemplateData(await readLegacyCurrency());
+                /* Kur kapalıyken ana fiyat alanı artık hep TL; eski kayıtta başka para birimi seçiliyse TL'ye çevrilir (veri kaybolmaz). */
+                if (initial.currency && curEditId(initial) !== "TRY")
+                    initial = switchEditCurrency(initial, "TRY");
                 /* Apple görünümüne geçiş: eski kayıttaki tema bir kez Apple temasına çevrilir (arka plan görseli korunur). */
                 let themeMigrated = false;
                 if (Number(initial.themeRev) < 2) {
@@ -5912,6 +5949,11 @@ function App() {
             out.push("Fiyat yok");
         else if (!isVariantLayout(admLayout(c)) && p.parts.length > 1 && priceTotal(it.price) === null)
             out.push("Takım fiyatı yok");
+        if (!curEnabled(data)) {
+            const m = missingCurrencyPrices({ ...data, categories: [{ id: c.id, items: [it] }] });
+            if (m.length)
+                out.push(m[0].missing.join("/") + " fiyatı eksik");
+        }
         return out;
     };
     const RECENT_KEY = "katalog_admin_recent_v1";
@@ -5980,7 +6022,8 @@ function App() {
                     if (!ks.has(admKey(c.id, it.id)))
                         return it;
                     const p = normalizePrice(it.price);
-                    return { ...it, price: { ...p, manualTotal: f(p.manualTotal), parts: p.parts.map(pt => ({ ...pt, amount: f(pt.amount) })) } };
+                    const fm = m => admBulk.mode === "pct" ? Object.fromEntries(Object.entries(m || {}).map(([k, v]) => [k, f(v)])) : (m || {});
+                    return { ...it, price: { ...p, manualTotal: f(p.manualTotal), totals: fm(p.totals), parts: p.parts.map(pt => ({ ...pt, amount: f(pt.amount), prices: fm(pt.prices) })) } };
                 }) }));
         });
         setAdmSel(new Set());
@@ -6210,7 +6253,6 @@ function App() {
                     React.createElement("h1", { className: "adm-h1" }, "\u00DCr\u00FCnler & Fiyatlar"),
                     React.createElement("p", { className: "adm-sub" }, admView === "table" ? "Fiyata tıklayıp yazın; satıra tıklayınca ürün sağda açılır. Sırayı değiştirmek için ⋮⋮ tutamacından sürükleyin." : "Karta tıklayınca ürün sağda açılır. Sırayı değiştirmek için sağ üstteki ⋮⋮ tutamacından sürükleyin.")),
                 React.createElement("div", { className: "adm-row-gap" },
-                    admCurSwitch(),
                     React.createElement("div", { className: "adm-seg", role: "group", "aria-label": "G\u00F6r\u00FCn\u00FCm" },
                         React.createElement("button", { type: "button", "aria-pressed": admView === "table", onClick: () => setAdmView("table") },
                             React.createElement(AdmIcon, { name: "table", size: 16 }),
@@ -6255,7 +6297,7 @@ function App() {
                             React.createElement("th", { style: { width: 120 } }, "Durum"))),
                     React.createElement("tbody", null, shown.map(({ c, it }) => {
                         var _a, _b;
-                        const k = admKey(c.id, it.id), pi = admPriceInfo(c, it), parts = pi.p.parts, iss = admIssuesOf(c, it), sel = admSel.has(k), single = parts.length === 1 ? parts[0] : null;
+                        const k = admKey(c.id, it.id), pi = admPriceInfo(c, it), parts = pi.p.parts, iss = admIssuesOf(c, it), sel = admSel.has(k), single = parts.length === 1 && curEnabled(data) ? parts[0] : null;
                         return React.createElement("tr", { key: k, "data-adm-key": k, className: (sel ? "is-sel " : "") + (admEdit && admEdit.id === it.id && admEdit.cid === c.id ? "is-open" : "") + admDragCls(k) },
                             React.createElement("td", null, admGrip(c, it)),
                             React.createElement("td", null,
@@ -6381,7 +6423,7 @@ function App() {
                     admTab === "fiyat" && React.createElement("div", { className: "adm-form" },
                         React.createElement("div", { className: "adm-info" },
                             lay === "models" ? "Her satır bir model (Müdür, Şef, Misafir…) ve kendi fotoğrafı. Sitede en düşük fiyat “başlayan fiyat” olarak görünür." : lay === "sizes" ? "Her satır bir ölçü seçeneği. Fiyatlar toplanmaz; sitede en düşük fiyat “başlayan fiyat” olarak görünür." : "Her satır bir modül. Takım fiyatı otomatik toplanabilir ya da elle girilebilir.",
-                            " Fiyatlar TL, KDV hari\u00E7."),
+                            curEnabled(data) ? " Fiyatlar TL, KDV hari\u00E7." : " Fiyatlar\u0131 TL, USD ve EUR olarak ayr\u0131 girin (KDV hari\u00E7)."),
                         p.parts.map((part, pi) => {
                             var _a;
                             return React.createElement("div", { key: part.id, className: "adm-part" },
@@ -6393,9 +6435,11 @@ function App() {
                                 React.createElement("label", { className: "adm-field adm-w140" },
                                     React.createElement("span", null, "\u00D6l\u00E7\u00FC (cm)"),
                                     React.createElement("input", { className: "adm-input", value: part.dims || "", placeholder: "200x90x75", onChange: e => { const v = e.target.value; updatePricePart(c.id, it.id, part.id, "dims", v); updatePricePart(c.id, it.id, part.id, "dims_en", v); } })),
-                                React.createElement("label", { className: "adm-field adm-w130" },
+                                curEnabled(data) ? React.createElement("label", { className: "adm-field adm-w130" },
                                     React.createElement("span", null, "Fiyat (\u20BA)"),
-                                    React.createElement(NumField, { className: "adm-input adm-num", inputMode: "decimal", min: 0, value: (_a = part.amount) !== null && _a !== void 0 ? _a : "", disabled: part.contactOnly, placeholder: part.contactOnly ? "Sorunuz" : "—", onValue: v => updatePricePart(c.id, it.id, part.id, "amount", v) })),
+                                    React.createElement(NumField, { className: "adm-input adm-num", inputMode: "decimal", min: 0, value: (_a = part.amount) !== null && _a !== void 0 ? _a : "", disabled: part.contactOnly, placeholder: part.contactOnly ? "Sorunuz" : "—", onValue: v => updatePricePart(c.id, it.id, part.id, "amount", v) })) : React.createElement("div", { className: "adm-curgrid", role: "group", "aria-label": "Fiyatlar (TL, USD, EUR)" }, [["TRY", "\u20BA TL"], ["USD", "$ USD"], ["EUR", "\u20AC EUR"]].map(([cur, label]) => { const val = cur === "TRY" ? part.amount : (part.prices || {})[cur]; const miss = !part.contactOnly && priceNumber(val) === null; return React.createElement("label", { key: cur, className: "adm-field adm-curfield" + (miss ? " is-missing" : "") },
+                                    React.createElement("span", null, label, ""),
+                                    React.createElement(NumField, { className: "adm-input adm-num", inputMode: "decimal", min: 0, "aria-label": (part.name || "Kalem") + " " + label + " fiyatı", "aria-invalid": miss, value: val ?? "", disabled: part.contactOnly, placeholder: part.contactOnly ? "Sorunuz" : "\u2014", onValue: v => cur === "TRY" ? updatePricePart(c.id, it.id, part.id, "amount", v) : updatePricePart(c.id, it.id, part.id, "prices", { ...(part.prices || {}), [cur]: v }) })); })),
                                 React.createElement("div", { className: "adm-part-tools" },
                                     React.createElement("label", { className: "adm-mini" },
                                         React.createElement("input", { type: "checkbox", checked: !!part.contactOnly, onChange: e => updatePricePart(c.id, it.id, part.id, "contactOnly", e.target.checked) }),
@@ -6413,7 +6457,9 @@ function App() {
                                     React.createElement("input", { type: "checkbox", checked: p.autoCollect !== false, onChange: e => setPriceAutoCollect(c.id, it.id, e.target.checked) }),
                                     "Mod\u00FClleri otomatik topla")),
                             p.autoCollect === false
-                                ? React.createElement(NumField, { className: "adm-input adm-num adm-w160", inputMode: "decimal", min: 0, "aria-label": "Tak\u0131m fiyat\u0131", value: (_a = p.manualTotal) !== null && _a !== void 0 ? _a : "", placeholder: "Tak\u0131m fiyat\u0131", onValue: v => updateItem(c.id, it.id, "price", { ...p, manualTotal: v }) })
+                                ? (curEnabled(data) ? React.createElement(NumField, { className: "adm-input adm-num adm-w160", inputMode: "decimal", min: 0, "aria-label": "Tak\u0131m fiyat\u0131", value: (_a = p.manualTotal) !== null && _a !== void 0 ? _a : "", placeholder: "Tak\u0131m fiyat\u0131", onValue: v => updateItem(c.id, it.id, "price", { ...p, manualTotal: v }) }) : React.createElement("div", { className: "adm-curgrid" }, [["TRY", "\u20BA"], ["USD", "$"], ["EUR", "\u20AC"]].map(([cur, sym]) => { const val = cur === "TRY" ? p.manualTotal : (p.totals || {})[cur]; const miss = priceNumber(val) === null; return React.createElement("label", { key: cur, className: "adm-field adm-curfield" + (miss ? " is-missing" : "") },
+                                    React.createElement("span", null, "Tak\u0131m " + sym + ""),
+                                    React.createElement(NumField, { className: "adm-input adm-num", inputMode: "decimal", min: 0, "aria-label": "Tak\u0131m fiyat\u0131 " + cur, value: val ?? "", placeholder: "\u2014", onValue: v => updateItem(c.id, it.id, "price", cur === "TRY" ? { ...p, manualTotal: v } : { ...p, totals: { ...(p.totals || {}), [cur]: v } }) })); })))
                                 : React.createElement("span", { className: "adm-gold adm-big" }, admFmt(priceTotal(it.price)))))),
                 React.createElement("div", { className: "adm-drawer-f" },
                     React.createElement("button", { type: "button", className: "adm-btn adm-danger-btn", onClick: () => { deleteItem(c.id, it.id); setAdmEdit(null); } },
@@ -6784,9 +6830,7 @@ function App() {
                                     React.createElement(AdminLabel, null, "1 EUR = Ka\u00E7 TL?"),
                                     React.createElement(NumField, { className: "admin-input", inputMode: "decimal", "aria-label": "1 EUR = kaç TL", placeholder: "Kur girin (ör. 41,25)", parse: v => { const n = Number(String(v).replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : null; }, value: data.currency.eurRate, allowEmpty: true, keepDraft: true, min: 0.0001, max: 100000, onValue: n => setPath(["currency", "eurRate"], n) })),
                                 React.createElement("div", { className: "text-[11px] text-neutral-400 mb-4" }, "Kur bo\u015F b\u0131rak\u0131l\u0131rsa o para birimi sitede g\u00F6sterilmez. Virg\u00FCl veya nokta ile yazabilirsiniz; yazd\u0131\u011F\u0131n\u0131z gibi kal\u0131r.")) : React.createElement("div", { className: "mb-4" },
-                                React.createElement(AdminLabel, null, "Fiyat girdi\u011Fim para birimi"),
-                                React.createElement("div", { className: "grid grid-cols-3 gap-2 mb-2" }, CURRENCIES.map(c => React.createElement("button", { key: c.id, type: "button", onClick: () => setEditCurrency(c.id), "aria-pressed": curEditId(data) === c.id, className: "py-2.5 rounded-lg text-xs font-bold", style: { background: curEditId(data) === c.id ? theme.accent : "#FFFFFF", color: curEditId(data) === c.id ? ink : "#424245", border: "1px solid " + (curEditId(data) === c.id ? theme.accent : "#D2D2D7") } }, c.symbol + " " + c.name))),
-                                React.createElement("div", { className: "text-[11px] text-neutral-400" }, "\u00D6nce TL fiyatlar\u0131n\u0131 girin, sonra USD'ye ge\u00E7ip dolar fiyatlar\u0131n\u0131 girin. Fiyat\u0131 girilmeyen para birimi sitede g\u00F6sterilmez; o \u00FCr\u00FCnde \u201CFiyat i\u00E7in ileti\u015Fime ge\u00E7in\u201D yazar.")),
+                                React.createElement("div", { className: "text-[12px] text-neutral-300 leading-relaxed" }, "Kur kapal\u0131: \u00FCr\u00FCnlerde her fiyat kalemi i\u00E7in \u20BA TL, $ USD ve \u20AC EUR kutular\u0131 yan yana \u00E7\u0131kar. Bo\u015F b\u0131rak\u0131lan para biriminde sitede \u201CFiyat i\u00E7in ileti\u015Fime ge\u00E7in\u201D yazar. Fiyat\u0131 olmayan kalem i\u00E7in \u201CFiyat sorunuz\u201D i\u015Faretlenebilir.")),
                             React.createElement(AdminLabel, null, "Sitede ve PDF'te varsay\u0131lan para birimi"),
                             React.createElement("div", { className: "grid grid-cols-3 gap-2" }, CURRENCIES.map(c => { const ok = availableCurrencies(data).includes(c.id); const on = (data.currency?.selected || "TRY") === c.id; return React.createElement("button", { key: c.id, type: "button", disabled: !ok, title: ok ? "" : (curEnabled(data) ? "\u00D6nce kur girin" : "Bu para biriminde fiyat yok"), onClick: () => setPath(["currency", "selected"], c.id), className: "py-2.5 rounded-lg text-xs font-bold disabled:opacity-40", style: { background: on ? theme.accent : "#FFFFFF", color: on ? ink : "#424245", border: "1px solid " + (on ? theme.accent : "#D2D2D7") } }, c.symbol + " " + c.name); }))),
                     ),
