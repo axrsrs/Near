@@ -2,17 +2,17 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-vttqBMMvlZqneBgYVi2c2lPIEu4eI+YVDKzQhpDGG2g=' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https: data: blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-VxHd1gu4nvz/U9HHehUj6UMoMdRuyE/eNSPq1K31+zA=' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https: data: blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#141416">
+<meta name="theme-color" content="#F5F5F7">
 <title>Ürün Kataloğu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap&subset=latin-ext" rel="stylesheet">
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
@@ -463,6 +463,296 @@ body.adm-dragging{cursor:grabbing;user-select:none}
 @keyframes uiDlgPop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.ui-dlg,.ui-dlg-wrap{animation:none!important}}
 </style>
+<style id="apple-theme">
+/* ===== APPLE GÖRÜNÜMÜ (ana site, ana sayfa ve yönetim paneli) ===== */
+:root{--apple-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Inter,"Segoe UI",Roboto,sans-serif;--apple-blue:#0071E3;--apple-ink:#1D1D1F;--apple-muted:#6E6E73;--apple-line:#E5E5EA;--apple-line2:#D2D2D7;--apple-fill:#F5F5F7}
+html,body{background:var(--page-bg,#F5F5F7)!important}
+body{font-family:var(--apple-font)}
+:focus-visible{outline:2px solid var(--th-acc,var(--adm-accent,#0071E3));outline-offset:2px}
+body::before,body::after,#root::before,#root::after,.luxury-bg::before,.luxury-bg::after{display:none!important;animation:none!important}
+header{animation:appleRise .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes appleRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.luxury-bg{background-image:none;letter-spacing:-.011em}
+.luxury-bg h1{font-weight:700;letter-spacing:-.025em}
+.luxury-bg h2{letter-spacing:-.02em}
+/* Üst butonlar ve haplar */
+.luxury-bg .apple-pill,.luxury-bg header a{transition:transform .2s ease,filter .2s ease,background-color .2s ease,color .2s ease}
+.luxury-bg .apple-pill:hover:not(:disabled),.luxury-bg header a:hover{filter:brightness(1.07)}
+.luxury-bg .apple-pill:active:not(:disabled),.luxury-bg header a:active{transform:scale(.97)}
+.luxury-bg .apple-pill[style*="transparent"]:hover:not(:disabled){background:color-mix(in srgb,var(--th-acc) 9%,transparent)!important;filter:none}
+.luxury-bg .fixed button.rounded-full{transition:transform .2s ease,background-color .2s ease;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.luxury-bg .fixed button.rounded-full:active{transform:scale(.95)}
+/* Kategori şeridi */
+.category-chip{border-radius:980px!important;font-weight:600!important;font-size:13px!important;letter-spacing:-.005em;backdrop-filter:none!important;padding:8px 17px!important;min-height:40px!important}
+.category-chip::before,.category-chip.active::after{display:none!important}
+.category-chip:hover{transform:none!important;box-shadow:none!important;border-color:color-mix(in srgb,var(--th-text) 30%,transparent)!important}
+.category-chip.active,.category-chip.active:hover{transform:none!important;border-color:var(--th-text)!important}
+.category-chip:active{transform:scale(.96)!important}
+/* Ürün kartları */
+.luxury-bg .product-card{border:1px solid color-mix(in srgb,var(--th-text) 7%,transparent)!important;border-radius:20px!important;box-shadow:0 2px 10px rgba(0,0,0,.04)!important;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease!important}
+.luxury-bg .product-card::before,.product-image::after{display:none!important}
+.luxury-bg .product-card:hover{transform:translateY(-4px) scale(1.01)!important;box-shadow:0 14px 34px rgba(0,0,0,.10)!important;border-color:color-mix(in srgb,var(--th-text) 10%,transparent)!important}
+.luxury-bg .product-image{background-color:color-mix(in srgb,var(--th-text) 4%,var(--th-card))!important}
+@media(max-width:639px){.luxury-bg .product-card:hover{transform:none!important}}
+.search-input{border-color:color-mix(in srgb,var(--th-text,#1D1D1F) 14%,transparent);border-radius:12px;backdrop-filter:saturate(180%) blur(20px)}
+.search-input:focus{border-color:var(--th-acc,#0071E3);box-shadow:0 0 0 4px color-mix(in srgb,var(--th-acc,#0071E3) 20%,transparent)}
+.category-bar.is-stuck{background:color-mix(in srgb,var(--catbar-bg,#F5F5F7) 82%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);box-shadow:0 1px 0 color-mix(in srgb,var(--th-text,#1D1D1F) 8%,transparent)}
+.modal-backdrop{background:rgba(0,0,0,.32);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.luxury-bg [role=dialog].rounded-t-3xl{box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.price-row{border-color:color-mix(in srgb,var(--th-text,#1D1D1F) 8%,transparent);background:color-mix(in srgb,var(--th-text,#1D1D1F) 3%,transparent);border-radius:14px}
+.gallery-dot.active,.detail-gallery-dot.active{background:#fff}
+/* Bildirim */
+.apple-toast{background:rgba(29,29,31,.92)!important;backdrop-filter:saturate(180%) blur(20px);border-radius:980px!important;padding-left:20px!important;padding-right:20px!important;font-family:var(--apple-font)}
+/* PIN penceresi */
+.apple-backdrop{background:rgba(0,0,0,.32)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.apple-pin{background:#fff!important;border-color:var(--apple-line)!important;border-radius:22px!important;color:var(--apple-ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.35);font-family:var(--apple-font)}
+.apple-pin .text-white{color:var(--apple-ink)!important}
+.apple-pin .text-neutral-500{color:var(--apple-muted)!important}
+.apple-pin .text-red-400{color:#D70015!important}
+.apple-pin button{border-radius:980px!important;font-weight:600;transition:filter .2s,transform .2s}
+.apple-pin button:active{transform:scale(.97)}
+.apple-pin .bg-neutral-800{background:#F2F2F7!important;color:var(--apple-ink)!important}
+/* Form alanları */
+.admin-input{background:#fff!important;border:1px solid var(--apple-line2)!important;color:var(--apple-ink)!important;border-radius:12px!important}
+.admin-input:focus{border-color:var(--adm-accent,#0071E3)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--adm-accent,#0071E3) 18%,transparent)}
+.admin-input::placeholder{color:#AEAEB2}
+/* Onay pencereleri */
+.ui-dlg-wrap{background:rgba(0,0,0,.28);font-family:var(--apple-font)}
+.ui-dlg{color:var(--apple-ink);background:rgba(255,255,255,.94);border-color:rgba(0,0,0,.06);box-shadow:0 30px 80px -20px rgba(0,0,0,.35),0 0 0 .5px rgba(0,0,0,.08);border-radius:24px}
+.ui-dlg::before{display:none}
+.ui-dlg-msg{color:var(--apple-muted)}
+.ui-dlg-input{background:#fff;border-color:var(--apple-line2);color:var(--apple-ink)}
+.ui-dlg-input::placeholder{color:#AEAEB2}
+.ui-dlg-btn{border-radius:980px;background:#F2F2F7;border-color:transparent;color:var(--apple-ink);font-weight:600}
+.ui-dlg-btn:hover{background:#E8E8ED}
+.ui-dlg.is-danger .ui-dlg-icon{background:#FFF1F0;color:#D70015;border-color:#FFC9C5}
+.ui-dlg.is-danger .ui-dlg-btn.is-primary{background:#D70015;box-shadow:none}
+.ui-dlg-btn.is-primary{box-shadow:none}
+
+/* ---------- Yönetim paneli ---------- */
+.adm-shell{background:var(--apple-fill);color:var(--apple-ink);font-family:var(--apple-font);letter-spacing:-.01em;--adm-line:#E5E5EA;--adm-card:#FFFFFF;--adm-muted:#6E6E73;--adm-gold:var(--adm-accent,#0071E3)}
+.adm-shell input,.adm-shell select,.adm-shell textarea{color:var(--apple-ink)}
+.adm-side{background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-right:1px solid var(--adm-line)}
+.adm-logo{border-radius:10px;color:var(--adm-ink,#fff);font-family:var(--apple-font);font-weight:700}
+.adm-nav{color:#424245;font-weight:500;border-radius:10px;transition:background .15s,color .15s}
+.adm-nav:hover{background:rgba(0,0,0,.045);color:var(--apple-ink)}
+.adm-nav.is-on{background:color-mix(in srgb,var(--adm-accent) 11%,transparent);color:var(--adm-accent);font-weight:600}
+.adm-status{background:var(--apple-fill);border-color:var(--adm-line);font-weight:600}
+.adm-dot{background:#34C759}.adm-dot.is-warn{background:#FF9F0A}
+.adm-top{background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--adm-line)}
+.adm-eyebrow{color:var(--adm-accent);letter-spacing:.08em;font-weight:700}
+.adm-h1,.adm-h2{font-family:var(--apple-font);font-weight:700;letter-spacing:-.025em}
+.adm-card{border-color:var(--adm-line);border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.adm-action{border-color:var(--adm-line);border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.adm-action:hover{background:#fff;border-color:var(--apple-line2);box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-2px)}
+.adm-action-gold,.adm-action-gold:hover{background:var(--adm-accent);border-color:transparent;color:var(--adm-ink,#fff)}
+.adm-action-gold svg{color:var(--adm-ink,#fff)}
+.adm-action-gold:hover{filter:brightness(1.08)}
+.adm-btn{border-radius:980px;border-color:var(--apple-line2);background:#fff;color:var(--apple-ink);font-weight:600;transition:background .15s,filter .15s,transform .15s}
+.adm-btn:hover{background:var(--apple-fill)}
+.adm-btn:active:not(:disabled),.adm-iconbtn:active{transform:scale(.97)}
+.adm-btn-gold,.adm-btn-gold:hover{background:var(--adm-accent);border-color:transparent;color:var(--adm-ink,#fff)!important}
+.adm-btn-gold:hover{filter:brightness(1.08)}
+.adm-btn-dashed{color:#424245}
+.adm-iconbtn{border-radius:980px;background:#fff;border-color:var(--apple-line2);transition:background .15s,transform .15s}
+.adm-iconbtn:hover{background:var(--apple-fill)}
+.adm-danger,.adm-danger-btn{color:#D70015;border-color:#FFC9C5}
+.adm-danger-btn:hover{background:#FFF1F0}
+.adm-seg{border:0;border-radius:10px;background:#E8E8ED;padding:2px;gap:2px}
+.adm-seg button{border-radius:8px;color:#424245;font-weight:600;min-height:38px}
+.adm-seg button[aria-pressed=true]{background:#fff;color:var(--apple-ink);box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04)}
+.adm-search{background:#fff;border-color:var(--apple-line2);color:var(--apple-muted);border-radius:12px}
+.adm-search input{color:var(--apple-ink)}
+.adm-search:focus-within{border-color:var(--adm-accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--adm-accent) 18%,transparent)}
+.adm-select{background:#fff;border-color:var(--apple-line2);color:var(--apple-ink)}
+.adm-chip{border-color:#C7C7CC;color:#424245;font-weight:600}
+.adm-chip.is-on{border-color:var(--adm-accent);color:var(--adm-accent);background:color-mix(in srgb,var(--adm-accent) 8%,transparent)}
+.adm-tablewrap{background:#fff;border-color:var(--adm-line);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.adm-table th{background:#FAFAFC;color:var(--apple-muted);border-bottom-color:var(--adm-line);letter-spacing:.04em}
+.adm-table td{border-bottom-color:#F0F0F2}
+.adm-table tr:hover td{background:#F9F9FB}
+.adm-table tr.is-sel td{background:color-mix(in srgb,var(--adm-accent) 6%,#fff)}
+.adm-table tr.is-open td{background:color-mix(in srgb,var(--adm-accent) 10%,#fff)}
+.adm-table tr.is-drop td{background:color-mix(in srgb,var(--adm-accent) 8%,#fff)}
+.adm-namebtn{color:var(--apple-ink);font-weight:600}
+.adm-namebtn:hover{color:var(--adm-accent)}
+.adm-priceedit{background:#fff;border-color:var(--apple-line2)}
+.adm-priceedit input{color:var(--apple-ink)}
+.adm-priceedit input::placeholder{color:#AEAEB2}
+.adm-priceedit.is-total{border-color:color-mix(in srgb,var(--adm-accent) 45%,#fff)}
+.adm-badge{font-weight:600}
+.adm-badge-ok{background:#E3F9E9;color:#1B7F3B}
+.adm-badge-warn{background:#FFF4E0;color:#A05A00}
+.adm-ok{color:#1B7F3B!important}.adm-warn{color:#C76A00!important}
+.adm-pcard{background:#fff;border-color:var(--adm-line);border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:box-shadow .25s,transform .25s}
+.adm-pcard:hover{box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.adm-pcard.is-sel{border-color:color-mix(in srgb,var(--adm-accent) 50%,#fff)}
+.adm-pcard-img{background:var(--apple-fill);color:#AEAEB2}
+.adm-pcard-check{background:rgba(255,255,255,.88)}
+.adm-pcard-grip .adm-grip{background:rgba(255,255,255,.88);color:#424245}
+.adm-grip{color:#AEAEB2}
+.adm-grip:hover{color:var(--apple-ink);background:#F0F0F2}
+.adm-bulk{background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-color:var(--adm-line);box-shadow:0 18px 50px rgba(0,0,0,.16);color:var(--apple-ink)}
+.adm-sep{background:var(--apple-line2)}
+.adm-muted-l{color:#424245}
+.adm-bulk-in{background:#fff;border-color:var(--apple-line2);color:var(--apple-ink)}
+.adm-drawer-bg{background:rgba(0,0,0,.22);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.adm-drawer{background:#fff;border-left-color:var(--adm-line);box-shadow:-30px 0 60px rgba(0,0,0,.12)}
+.adm-tabs{border-bottom-color:var(--adm-line)}
+.adm-tabs button{color:var(--apple-muted)}
+.adm-tabs button.is-on{color:var(--apple-ink)}
+.adm-drawer-f{border-top-color:var(--adm-line)}
+.adm-input{background:#fff;border-color:var(--apple-line2);color:var(--apple-ink)}
+.adm-input:focus{box-shadow:0 0 0 4px color-mix(in srgb,var(--adm-accent) 18%,transparent)}
+.adm-input::placeholder{color:#AEAEB2}
+.adm-info{background:var(--apple-fill);border-color:var(--adm-line);color:#424245}
+.adm-drop{background:#FAFAFC;border-color:#C7C7CC;color:var(--apple-ink)}
+.adm-photo{border-color:var(--adm-line)}
+.adm-photo-tag{color:var(--adm-ink,#fff)}
+.adm-part{background:#F9F9FB;border-color:var(--adm-line)}
+.adm-part-img{border-color:#C7C7CC}
+.adm-mini{color:#424245}
+.adm-total{background:#fff;border-color:color-mix(in srgb,var(--adm-accent) 40%,#fff)}
+.adm-modal-wrap{background:rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.adm-modal{background:#fff;border-color:var(--adm-line);box-shadow:0 30px 80px -20px rgba(0,0,0,.3);border-radius:24px}
+.adm-catbtn{background:#F9F9FB;border-color:var(--adm-line);border-radius:16px}
+.adm-note{background:var(--apple-fill);color:var(--apple-ink)}
+.adm-note-warn{background:#FFF4E0;color:#6B3D00}
+.adm-note-warn:hover{background:#FFEBC7}
+.adm-note-ok{background:#E3F9E9;color:#0E5A27}
+.adm-recent{border-bottom-color:#F0F0F2}
+.adm-recent:hover{background:var(--apple-fill)}
+.adm-thumb{background:var(--apple-fill)}
+.adm-thumb-empty{background:var(--apple-fill);color:#AEAEB2}
+/* Eski bölümler (Fiyatlar, Kategoriler, PDF, Görünüm) */
+.adm-shell .bg-neutral-950{background:#fff!important}
+.adm-shell .bg-neutral-900{background:#fff!important;box-shadow:0 0 0 1px var(--adm-line),0 1px 3px rgba(0,0,0,.04)}
+.adm-shell .bg-neutral-800{background:#F2F2F7!important}
+.adm-shell .h-px.bg-neutral-800{box-shadow:none}
+.adm-shell .bg-neutral-700{background:#E5E5EA!important}
+.adm-shell .border-neutral-800{border-color:var(--adm-line)!important}
+.adm-shell .border-neutral-700{border-color:var(--apple-line2)!important}
+.adm-shell .border-neutral-600{border-color:#C7C7CC!important}
+.adm-shell .text-neutral-400,.adm-shell .text-neutral-500,.adm-shell .text-neutral-600{color:var(--apple-muted)!important}
+.adm-shell .text-neutral-300,.adm-shell .text-neutral-200{color:var(--apple-ink)!important}
+.adm-shell .text-amber-500{color:var(--adm-accent)!important}
+.adm-shell .bg-red-950{background:#FFF1F0!important}
+.adm-shell .text-red-400{color:#D70015!important}
+.adm-shell .border-red-900{border-color:#FFC9C5!important}
+.adm-shell .adm-legacy button.rounded-lg,.adm-shell .adm-legacy button.rounded-xl{border-radius:12px;transition:filter .15s,transform .15s,background-color .15s}
+.adm-shell .adm-legacy button:active:not(:disabled){transform:scale(.98)}
+.adm-shell .adm-legacy .bg-neutral-800:hover{background:#E8E8ED!important}
+.adm-shell input[type=range]{accent-color:var(--adm-accent)}
+@media(prefers-reduced-motion:reduce){header{animation:none}.adm-action:hover,.luxury-bg .product-card:hover{transform:none!important}}
+
+.luxury-bg .detail-gallery{background-color:color-mix(in srgb,var(--th-text) 4%,var(--th-card))!important}
+.adm-linkbtn{color:var(--adm-accent)!important}
+
+</style>
+<style id="theme-shapes">
+/* ===== TEMA ŞABLONLARI: şekil, buton ve pencere biçimleri ===== */
+:root{--r-btn:980px;--r-icon:980px;--r-card:20px;--r-modal:24px;--r-chip:980px;--r-input:12px;--r-panel:18px;--btn-tt:none;--btn-ls:-.005em;--btn-fw:600;--btn-border:1px;--card-shadow:0 2px 10px rgba(0,0,0,.04);--card-shadow-h:0 14px 34px rgba(0,0,0,.10);--card-lift:-4px;--disp-font:var(--apple-font);--disp-ls:-.025em;--disp-fw:700;--glass:saturate(180%) blur(20px)}
+:root[data-ui="sharp"]{--r-btn:0px;--r-icon:0px;--r-card:0px;--r-modal:0px;--r-chip:0px;--r-input:0px;--r-panel:0px;--btn-tt:uppercase;--btn-ls:.09em;--btn-fw:600;--card-shadow:none;--card-shadow-h:none;--card-lift:0px;--disp-font:"Helvetica Neue",Helvetica,Arial,var(--apple-font);--disp-ls:-.03em;--disp-fw:500;--glass:none}
+:root[data-ui="soft"]{--r-btn:16px;--r-icon:16px;--r-card:30px;--r-modal:32px;--r-chip:14px;--r-input:16px;--r-panel:26px;--btn-fw:700;--card-shadow:0 10px 30px rgba(31,42,38,.08);--card-shadow-h:0 22px 48px rgba(31,42,38,.15);--card-lift:-6px;--disp-fw:800;--disp-ls:-.03em}
+:root[data-ui="luxe"]{--r-btn:4px;--r-icon:4px;--r-card:8px;--r-modal:10px;--r-chip:4px;--r-input:6px;--r-panel:10px;--btn-tt:uppercase;--btn-ls:.14em;--btn-fw:600;--card-shadow:0 14px 40px rgba(0,0,0,.35);--card-shadow-h:0 24px 60px rgba(0,0,0,.5);--card-lift:-3px;--disp-font:"Cormorant Garamond",Georgia,"Times New Roman",serif;--disp-ls:.01em;--disp-fw:600}
+/* Ana site */
+.luxury-bg h1,.luxury-bg h2{font-family:var(--disp-font);letter-spacing:var(--disp-ls);font-weight:var(--disp-fw)}
+:root[data-ui="luxe"] .luxury-bg h1{font-size:2.4rem}
+:root[data-ui="luxe"] .luxury-bg h2{font-size:1.5rem}
+.luxury-bg .apple-pill,.luxury-bg header a{border-radius:var(--r-btn)!important;text-transform:var(--btn-tt);letter-spacing:var(--btn-ls);font-weight:var(--btn-fw)}
+:root[data-ui="sharp"] .luxury-bg .apple-pill,:root[data-ui="luxe"] .luxury-bg .apple-pill,:root[data-ui="sharp"] .luxury-bg header a,:root[data-ui="luxe"] .luxury-bg header a{font-size:12px}
+.luxury-bg .fixed button.rounded-full{border-radius:var(--r-icon)!important;backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}
+.category-chip{border-radius:var(--r-chip)!important;text-transform:var(--btn-tt);letter-spacing:var(--btn-ls)!important}
+:root[data-ui="sharp"] .category-chip,:root[data-ui="luxe"] .category-chip{font-size:11px!important}
+:root[data-ui="soft"] .category-chip:not(.active){box-shadow:0 4px 14px rgba(31,42,38,.07)!important}
+.luxury-bg .product-card{border-radius:var(--r-card)!important;box-shadow:var(--card-shadow)!important}
+.luxury-bg .product-card:hover{transform:translateY(var(--card-lift))!important;box-shadow:var(--card-shadow-h)!important}
+:root[data-ui="sharp"] .luxury-bg .product-card{border-color:color-mix(in srgb,var(--th-text) 12%,transparent)!important}
+:root[data-ui="sharp"] .luxury-bg .product-card:hover{border-color:var(--th-text)!important}
+:root[data-ui="luxe"] .luxury-bg .product-card{border-color:color-mix(in srgb,var(--th-acc) 22%,transparent)!important}
+:root[data-ui="luxe"] .luxury-bg .product-card:hover{border-color:color-mix(in srgb,var(--th-acc) 55%,transparent)!important}
+:root[data-ui="luxe"] .luxury-bg .product-card .font-semibold{font-family:var(--disp-font);font-size:16px;letter-spacing:.01em}
+.luxury-bg [role=dialog].rounded-t-3xl{border-radius:var(--r-modal) var(--r-modal) 0 0!important}
+@media(min-width:640px){.luxury-bg [role=dialog].rounded-t-3xl{border-radius:var(--r-modal)!important}}
+.luxury-bg [role=dialog] h2{font-family:var(--disp-font);letter-spacing:var(--disp-ls)}
+.price-row{border-radius:calc(var(--r-card) * .7)}
+.search-input{border-radius:var(--r-input)}
+.category-bar.is-stuck{backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}
+:root[data-ui="sharp"] .category-bar.is-stuck{background:var(--catbar-bg)}
+:root[data-ui="luxe"] .modal-backdrop,:root[data-ui="luxe"] .apple-backdrop{background:rgba(0,0,0,.6)!important}
+/* Pencereler ve diyaloglar */
+.apple-pin{border-radius:var(--r-modal)!important}
+.apple-pin button,.apple-pin .admin-input{border-radius:var(--r-btn)!important}
+.apple-pin .admin-input{border-radius:var(--r-input)!important}
+.ui-dlg{border-radius:var(--r-modal)}
+.ui-dlg-btn{border-radius:var(--r-btn);text-transform:var(--btn-tt);letter-spacing:var(--btn-ls)}
+.ui-dlg-icon{border-radius:calc(var(--r-modal) * .5)}
+.ui-dlg-input{border-radius:var(--r-input)}
+.apple-toast{border-radius:var(--r-btn)!important}
+/* Yönetim paneli: aynı şekil dili */
+.adm-btn,.adm-iconbtn{border-radius:var(--r-btn);text-transform:var(--btn-tt);letter-spacing:var(--btn-ls)}
+.adm-card,.adm-action,.adm-pcard,.adm-tablewrap{border-radius:var(--r-panel)}
+.adm-modal,.adm-drawer .adm-total{border-radius:var(--r-modal)}
+.adm-input,.adm-search,.adm-select,.adm-priceedit,.adm-bulk-in,.admin-input{border-radius:var(--r-input)!important}
+.adm-nav{border-radius:calc(var(--r-panel) * .55)}
+.adm-chip{border-radius:var(--r-chip)}
+.adm-seg{border-radius:calc(var(--r-input) * .85)}
+.adm-seg button{border-radius:calc(var(--r-input) * .7)}
+.adm-logo{border-radius:calc(var(--r-panel) * .55)}
+.adm-h1,.adm-h2{font-family:var(--disp-font);font-weight:var(--disp-fw);letter-spacing:var(--disp-ls)}
+:root[data-ui="luxe"] .adm-h1{font-size:36px}
+:root[data-ui="sharp"] .adm-card,:root[data-ui="sharp"] .adm-action,:root[data-ui="sharp"] .adm-pcard,:root[data-ui="sharp"] .adm-tablewrap{box-shadow:none}
+:root[data-ui="soft"] .adm-card,:root[data-ui="soft"] .adm-action,:root[data-ui="soft"] .adm-pcard{box-shadow:0 8px 24px rgba(31,42,38,.06);border-color:transparent}
+.adm-shell .adm-legacy button.rounded-lg,.adm-shell .adm-legacy button.rounded-xl{border-radius:min(var(--r-btn),12px)}
+.adm-shell .bg-neutral-900.rounded-xl{border-radius:var(--r-panel)!important}
+
+/* Açma/kapama anahtarı */
+.ui-switch{position:relative;flex-shrink:0;width:51px;height:31px;border-radius:999px;border:0;background:#E5E5EA;transition:background .2s ease;padding:0;cursor:pointer}
+.ui-switch span{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 1px 1px rgba(0,0,0,.16);transition:transform .2s ease}
+.ui-switch.is-on{background:#34C759}
+.ui-switch.is-on span{transform:translateX(20px)}
+:root[data-ui="sharp"] .ui-switch,:root[data-ui="sharp"] .ui-switch span{border-radius:0}
+
+/* Tema şablonu kartları */
+.theme-tpl{display:flex;flex-direction:column;text-align:left;border:2px solid #E5E5EA;border-radius:16px;overflow:hidden;background:#fff;padding:0;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.theme-tpl:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-1px)}
+.theme-tpl.is-on{border-color:var(--adm-accent,#0071E3);box-shadow:0 0 0 3px color-mix(in srgb,var(--adm-accent,#0071E3) 18%,transparent)}
+.theme-tpl-stage{display:flex;gap:8px;padding:12px;background:var(--pv-bg);min-height:96px;align-items:stretch}
+.theme-tpl-card{flex:1;display:flex;flex-direction:column;gap:5px;padding:6px;background:var(--pv-card);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.theme-tpl-img{height:30px;border-radius:6px;background:color-mix(in srgb,var(--pv-text) 8%,var(--pv-card))}
+.theme-tpl-line{height:5px;border-radius:3px;background:color-mix(in srgb,var(--pv-text) 55%,transparent)}
+.theme-tpl-line.short{width:55%;background:var(--pv-acc)}
+.theme-tpl-side{display:flex;flex-direction:column;gap:5px;justify-content:center;width:52%}
+.theme-tpl-btn{display:block;text-align:center;font-size:9px;font-weight:700;padding:5px 4px;border-radius:999px;background:var(--pv-acc);color:var(--pv-ink);border:1px solid var(--pv-acc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.theme-tpl-btn.ghost{background:transparent;color:var(--pv-acc)}
+.theme-tpl-chip{display:block;text-align:center;font-size:9px;font-weight:600;padding:4px;border-radius:999px;background:var(--pv-text);color:var(--pv-bg)}
+.theme-tpl-meta{display:flex;flex-direction:column;gap:2px;padding:10px 12px 12px;color:#1D1D1F}
+.theme-tpl-meta b{font-size:13px}
+.theme-tpl-meta small{font-size:11px;color:#6E6E73;line-height:1.35}
+[data-ui-preview="sharp"] .theme-tpl-card,[data-ui-preview="sharp"] .theme-tpl-img,[data-ui-preview="sharp"] .theme-tpl-btn,[data-ui-preview="sharp"] .theme-tpl-chip{border-radius:0;box-shadow:none}
+[data-ui-preview="sharp"] .theme-tpl-btn,[data-ui-preview="sharp"] .theme-tpl-chip{text-transform:uppercase;letter-spacing:.08em;font-size:8px}
+[data-ui-preview="sharp"] .theme-tpl-card{border:1px solid color-mix(in srgb,var(--pv-text) 14%,transparent)}
+[data-ui-preview="soft"] .theme-tpl-card{border-radius:16px;box-shadow:0 6px 16px rgba(31,42,38,.10)}
+[data-ui-preview="soft"] .theme-tpl-btn,[data-ui-preview="soft"] .theme-tpl-chip{border-radius:9px}
+[data-ui-preview="luxe"] .theme-tpl-card{border-radius:4px;border:1px solid color-mix(in srgb,var(--pv-acc) 35%,transparent)}
+[data-ui-preview="luxe"] .theme-tpl-btn,[data-ui-preview="luxe"] .theme-tpl-chip{border-radius:2px;text-transform:uppercase;letter-spacing:.12em;font-size:8px}
+[data-ui-preview="luxe"] .theme-tpl-btn:not(.ghost){background:transparent;color:var(--pv-acc)}
+[data-ui-preview="luxe"] .theme-tpl-btn.ghost{border-color:color-mix(in srgb,var(--pv-acc) 45%,transparent)}
+
+/* Mobilde yönetim paneli kaydırma düzeltmesi: esnek sütunun içindeki kaydırma alanı küçülebilmeli */
+.adm-shell{height:100%;height:100dvh;max-height:100dvh}
+.adm-main{min-height:0;overflow:hidden}
+.adm-content{min-height:0;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior-y:contain}
+.adm-drawer-body,.adm-modal{-webkit-overflow-scrolling:touch;touch-action:pan-y;min-height:0}
+.adm-side{touch-action:pan-x pan-y}
+
+</style>
+<style id="storage-warn">
+.storage-warn{font-size:12px;line-height:1.45;color:#6B3D00;background:#FFF4E0;border:1px solid #FFD89A;border-radius:12px;padding:10px 12px}
+.adm-side .storage-warn{margin:0 0 8px}
+.storage-warn-sm{display:none;margin:10px 12px 0;flex-shrink:0}
+@media(max-width:900px){.adm-side .storage-warn{display:none}.storage-warn-sm{display:block}}
+</style>
 </head>
 <body>
 <div id="root"></div>
@@ -476,25 +766,51 @@ const { useState, useEffect, useRef, useDeferredValue } = React;
   - Yönetim PIN'i katalog verisinde DEĞİL; ayrı bir anahtarda PBKDF2 hash olarak tutulur
   - İngilizce alanlar Türkçe alanlardan ayrı tutulur
 */
-const DB_KEY = "katalog_sablon_catalog_v5";
-/* Tarayıcı depolaması engelliyse (gizli mod, kapalı çerezler) site çökmesin. */
-function lsGet(k) { try {
-    return window.localStorage.getItem(k);
-}
-catch (_) {
-    return null;
-} }
-function lsSet(k, v) { try {
-    window.localStorage.setItem(k, v);
+const DB_KEY = "katalog_sablon_catalog_v6";
+/* Eski sürüm kayıt anahtarları: yalnızca kur ayarlarını taşımak için okunur (ürün/kategori/görsel taşınmaz). */
+const LEGACY_DB_KEYS = ["katalog_sablon_catalog_v5", "katalog_sablon_catalog_backup_v5"];
+const LEGACY_IDB_NAME = "katalog_sablon_storage_v3";
+/* Tarayıcı depolaması engelliyse (çevrimiçi HTML ön izleme siteleri, bazı gizli modlar, kapalı çerezler)
+   site çökmez ve yönetim paneli çalışır: veriler bu sekmenin belleğinde tutulur, sayfa kapanınca silinir. */
+const MEM_STORE = new Map();
+const STORAGE_OK = (() => { try {
+    const k = "__katalog_test__";
+    window.localStorage.setItem(k, "1");
+    window.localStorage.removeItem(k);
     return true;
 }
 catch (_) {
     return false;
-} }
-function lsRemove(k) { try {
-    window.localStorage.removeItem(k);
+} })();
+function lsGet(k) {
+    if (STORAGE_OK)
+        try {
+            return window.localStorage.getItem(k);
+        }
+        catch (_) { }
+    return MEM_STORE.has(k) ? MEM_STORE.get(k) : null;
 }
-catch (_) { } }
+function lsSet(k, v) {
+    if (STORAGE_OK)
+        try {
+            window.localStorage.setItem(k, v);
+            return true;
+        }
+        catch (_) {
+            return false; /* depolama dolu */
+        }
+    MEM_STORE.set(k, String(v));
+    return true;
+}
+function lsRemove(k) {
+    if (STORAGE_OK)
+        try {
+            window.localStorage.removeItem(k);
+        }
+        catch (_) { }
+    MEM_STORE.delete(k);
+}
+const STORAGE_WARNING = "Bu sayfa kalıcı kayda izin vermeyen bir ortamda açılmış (ör. çevrimiçi HTML ön izleme sitesi). Panel çalışır ama değişiklikler sayfa kapanınca silinir. Kalıcı kullanım için dosyayı kendi sitenize yükleyin veya JSON yedeği alın.";
 /* -------------------- SECURITY: INPUT DEFENSE / THROTTLING -------------------- */
 const SECURITY_LIMITS = Object.freeze({
     text: 4000, shortText: 500, search: 120, id: 160, jsonFileBytes: 200 * 1024 * 1024,
@@ -607,27 +923,31 @@ function sanitizeCatalogData(data) {
     };
     const th = clean.theme || {}, bt = base.theme;
     clean.theme = {
-        id: safeId(th.id) || bt.id, name: safeShortText(th.name, 60) || bt.name,
+        id: safeId(th.id) || bt.id, name: safeShortText(th.name, 60) || bt.name, ui: UI_STYLES.includes(th.ui) ? th.ui : "apple",
         bg: safeHexColor(th.bg, bt.bg), card: safeHexColor(th.card, bt.card), accent: safeHexColor(th.accent, bt.accent), text: safeHexColor(th.text, bt.text),
         bgImage: safeAssetSource(th.bgImage) || null
     };
     clean.cardImgSize = clampNumber(clean.cardImgSize, 80, 600, 180);
+    /* Kur değerleri boş bırakılabilir; varsayılan sayı yazılmaz. */
+    const rateOf = v => { if (v === null || v === undefined || v === "") return null; const n = Number(v); return Number.isFinite(n) && n > 0 && n < 1000000 ? n : null; };
     clean.currency = {
-        selected: ["TRY", "USD", "EUR"].includes(clean.currency?.selected) ? clean.currency.selected : "TRY",
-        usdRate: (n => Number.isFinite(n) && n > 0 && n < 1000000 ? n : base.currency.usdRate)(Number(clean.currency?.usdRate)),
-        eurRate: (n => Number.isFinite(n) && n > 0 && n < 1000000 ? n : base.currency.eurRate)(Number(clean.currency?.eurRate))
+        enabled: !!clean.currency?.enabled,
+        editCur: CUR_IDS.includes(clean.currency?.editCur) ? clean.currency.editCur : "TRY",
+        selected: CUR_IDS.includes(clean.currency?.selected) ? clean.currency.selected : "TRY",
+        usdRate: rateOf(clean.currency?.usdRate),
+        eurRate: rateOf(clean.currency?.eurRate)
     };
     if (clean.pdf) {
         for (const k of ["title", "footer", "website", "catalogTitle"])
             clean.pdf[k] = safeText(clean.pdf[k], 200);
-        clean.pdf.catalogTemplate = ["klasik", "vitrin", "izgara", "dergi"].includes(clean.pdf.catalogTemplate) ? clean.pdf.catalogTemplate : "vitrin";
+        clean.pdf.catalogTemplate = ["akilli", "klasik", "vitrin", "izgara", "dergi"].includes(clean.pdf.catalogTemplate) ? clean.pdf.catalogTemplate : "akilli";
         const lay = {}, srcLay = (clean.pdf.categoryLayouts && typeof clean.pdf.categoryLayouts === "object") ? clean.pdf.categoryLayouts : {};
         const vit = {}, srcVit = (clean.pdf.vitrinModes && typeof clean.pdf.vitrinModes === "object") ? clean.pdf.vitrinModes : {};
         for (const fc of (clean.categories || [])) {
             const v = srcLay[fc.id];
-            if (["table", "sizes", "models"].includes(v))
+            if (["auto", "table", "sizes", "models"].includes(v))
                 lay[fc.id] = v;
-            if (["full", "duo", "flow"].includes(srcVit[fc.id]))
+            if (["auto", "full", "duo", "flow"].includes(srcVit[fc.id]))
                 vit[fc.id] = srcVit[fc.id];
         }
         clean.pdf.categoryLayouts = lay;
@@ -652,13 +972,14 @@ function sanitizeCatalogData(data) {
             if (item.price) {
                 const pr = normalizePrice(item.price);
                 item.price = { ...pr,
-                    amount: priceNumber(pr.amount), manualTotal: priceNumber(pr.manualTotal),
+                    amount: priceNumber(pr.amount), manualTotal: priceNumber(pr.manualTotal), totals: cleanCurMap(pr.totals),
                     contactOnly: !!pr.contactOnly, autoCollect: pr.autoCollect !== false,
                     parts: pr.parts.slice(0, 100).map(part => ({
                         id: safeId(part.id) || uid(),
                         name: safeText(part.name, 300), name_en: safeText(part.name_en, 300), name_src: safeText(part.name_src, 300),
                         dims: safeText(part.dims, 200), dims_en: safeText(part.dims_en, 200),
                         amount: priceNumber(part.amount), contactOnly: !!part.contactOnly,
+                        prices: cleanCurMap(part.prices),
                         image: safeAssetSource(part.image) || null
                     })) };
             }
@@ -666,7 +987,7 @@ function sanitizeCatalogData(data) {
     }
     return clean;
 }
-const BACKUP_KEY = "katalog_sablon_catalog_backup_v5";
+const BACKUP_KEY = "katalog_sablon_catalog_backup_v6";
 const LANG_KEY = "katalog_premium_lang_v1";
 const VIEW_CURRENCY_KEY = "katalog_view_currency_v1";
 /* SABİT KATEGORİLER — sitede, yönetim panelinde, fiyat listesinde ve katalogda tek kaynak.
@@ -686,14 +1007,53 @@ const FIXED_CATEGORY_LOOKUP = (() => { const m = new Map(); for (const fc of FIX
    sizes  = Ölçü kartları (her ölçü ayrı fiyat; toplanmaz)
    models = Model sırası (Müdür · Şef · Personel · Misafir; her modelin kendi fotoğrafı ve fiyatı; toplanmaz) */
 const PDF_CATEGORY_LAYOUTS = Object.freeze([
+    { id: "auto", name: "Akıllı (otomatik)", desc: "Ürünlere bakarak en uygun düzeni kendisi seçer." },
     { id: "table", name: "Takım Tablosu", desc: "Modüller toplanır, takım fiyatı çıkar." },
     { id: "sizes", name: "Ölçü Kartları", desc: "Her ölçünün ayrı fiyatı; 3'lü kartlar." },
     { id: "models", name: "Model Sırası", desc: "Müdür, şef, misafir… her modelin resmi ve fiyatı." }
 ]);
 const DEFAULT_CATEGORY_LAYOUTS = Object.freeze({});
+/* AKILLI DÜZEN: kategorideki ürünlerin fiyat kalemlerine bakar.
+   - Kalemlerin çoğunun kendi fotoğrafı varsa veya kalem adları Müdür/Şef/Misafir gibi modelse → Model Sırası
+   - Kalemler aynı ürünün farklı ölçüleriyse (160 cm, 180 cm …) veya tek kalemse → Ölçü Kartları
+   - Kalemler farklı modüllerse (Masa, Etajer, Dolap …) → Takım Tablosu (toplam takım fiyatı) */
+const AUTO_MODEL_WORDS = /\b(müdür|mudur|şef|sef|personel|misafir|yönetici|yonetici|genel müdür|bekleme|toplantı|toplanti|çalışma|calisma|manager|chief|staff|guest|executive|visitor)\b/i;
+function autoLayoutFor(category) {
+    const items = (category?.items || []).filter(Boolean);
+    let models = 0, table = 0, sizes = 0;
+    for (const it of items) {
+        const p = normalizePrice(it.price), parts = p.parts;
+        if (parts.length < 2) {
+            sizes++;
+            continue;
+        }
+        const withImg = parts.filter(x => x.image).length;
+        const roleNames = parts.filter(x => AUTO_MODEL_WORDS.test(String(x.name || ""))).length;
+        if (withImg >= Math.ceil(parts.length / 2) || roleNames >= Math.ceil(parts.length / 2)) {
+            models++;
+            continue;
+        }
+        const stem = x => categoryKey(String(x.name || "").replace(/[0-9]+([.,][0-9]+)?/g, " ").replace(/\b(cm|mm|m|x|×)\b/gi, " "));
+        const stems = new Set(parts.map(stem));
+        const dimLike = parts.filter(x => !String(x.name || "").trim() || /^[\s\d.,x×*/-]+(cm|mm)?\s*$/i.test(String(x.name))).length;
+        if (stems.size === 1 || dimLike >= parts.length / 2) {
+            sizes++;
+            continue;
+        }
+        table++;
+    }
+    if (models > 0 && models >= table && models >= sizes)
+        return "models";
+    if (table > sizes)
+        return "table";
+    return "sizes";
+}
 function categoryLayoutOf(data, categoryId) {
     const v = data?.pdf?.categoryLayouts?.[categoryId];
-    return PDF_CATEGORY_LAYOUTS.some(l => l.id === v) ? v : (DEFAULT_CATEGORY_LAYOUTS[categoryId] || "sizes");
+    if (v && v !== "auto" && PDF_CATEGORY_LAYOUTS.some(l => l.id === v))
+        return v;
+    const cat = (data?.categories || []).find(c => c.id === categoryId);
+    return cat ? autoLayoutFor(cat) : "sizes";
 }
 function isVariantLayout(layout) { return layout === "sizes" || layout === "models"; }
 /* Ölçü/model fiyatları alternatiftir: toplam yerine en düşük fiyat ("…'den başlayan") kullanılır. */
@@ -713,12 +1073,12 @@ function fixedCategoryIdFor(c) {
     return FIXED_CATEGORY_LOOKUP.get(categoryKey(name)) || FIXED_CATEGORY_LOOKUP.get(categoryKey(c.name_en)) || null;
 }
 const THEMES = [
-    { id: "graphite", name: "Grafit", bg: "#141416", card: "#1D1E21", accent: "#C9A227", text: "#EDEDEF" },
-    { id: "walnut", name: "Ceviz", bg: "#F5F1EA", card: "#FFFFFF", accent: "#8B4A2B", text: "#2A2016" },
-    { id: "navy", name: "Lacivert", bg: "#F4F6FA", card: "#FFFFFF", accent: "#1E3A5F", text: "#101826" },
-    { id: "goldnight", name: "Antrasit Altın", bg: "#1B1B1F", card: "#242428", accent: "#D4AF37", text: "#F0EFEA" },
-    { id: "concrete", name: "Beton Gri", bg: "#EEEEEC", card: "#FFFFFF", accent: "#4A4A4A", text: "#1C1C1C" }
+    { id: "apple", name: "Apple", ui: "apple", desc: "Hap butonlar, yuvarlak kartlar, buzlu cam.", bg: "#F5F5F7", card: "#FFFFFF", accent: "#0071E3", text: "#1D1D1F" },
+    { id: "minimal", name: "Minimal", ui: "sharp", desc: "Keskin köşeler, ince çizgiler, büyük harf butonlar.", bg: "#FFFFFF", card: "#F4F4F4", accent: "#111111", text: "#111111" },
+    { id: "yumusak", name: "Yumuşak", ui: "soft", desc: "Çok yuvarlak kutular, yumuşak gölgeler, sakin yeşil.", bg: "#EDF1EE", card: "#FFFFFF", accent: "#2F6F5E", text: "#1F2A26" },
+    { id: "luks", name: "Lüks Gece", ui: "luxe", desc: "Koyu zemin, altın vurgu, klasik yazı, çerçeveli butonlar.", bg: "#0E0E10", card: "#18181B", accent: "#C9A227", text: "#F2EFE8" }
 ];
+const UI_STYLES = ["apple", "sharp", "soft", "luxe"];
 const CURRENCIES = [
     { id: "TRY", symbol: "₺", name: "TL" }, { id: "USD", symbol: "$", name: "USD" }, { id: "EUR", symbol: "€", name: "EUR" }
 ];
@@ -728,7 +1088,7 @@ function uiDialog(opts) {
     return new Promise(resolve => {
         const prevFocus = document.activeElement;
         const shell = document.querySelector(".adm-shell");
-        let accent = "#C9A227";
+        let accent = "#0071E3";
         try { const v = shell && getComputedStyle(shell).getPropertyValue("--adm-accent").trim(); if (/^#[0-9a-f]{3,8}$/i.test(v)) accent = v; } catch (_) { }
         const hex = accent.replace("#", ""), full = hex.length === 3 ? hex.split("").map(c => c + c).join("") : hex.slice(0, 6);
         const r = parseInt(full.slice(0, 2), 16), g = parseInt(full.slice(2, 4), 16), b = parseInt(full.slice(4, 6), 16);
@@ -916,10 +1276,10 @@ function defaultData() {
         eyebrow: "", eyebrow_en: "",
         phone: DEFAULT_PHONE, preloadVersion: PRELOAD_VERSION,
         logo: { src: null, size: 110, width: 110, height: 110, position: "center" },
-        theme: { ...THEMES[0], bgImage: null }, cardImgSize: 180,
-        currency: { selected: "TRY", usdRate: 40, eurRate: 47 },
+        theme: { ...THEMES[0], bgImage: null }, themeRev: 2, cardImgSize: 180,
+        currency: { enabled: false, editCur: "TRY", selected: "TRY", usdRate: null, eurRate: null },
         categories: createDefaultCategories().map(c => ({ ...c, coverImage: PRELOADED_COVERS[c.id] || null, items: JSON.parse(JSON.stringify(PRELOADED_ITEMS[c.id] || [])) })), language: "TR",
-        pdf: { title: "FİYAT LİSTESİ", footer: "", showPageNumbers: true, website: "", useCategoryCovers: true, catalogTitle: "ÜRÜN KATALOĞU", catalogTemplate: "vitrin", coverLogo: { src: DEFAULT_PDF_COVER_LOGO } }
+        pdf: { title: "FİYAT LİSTESİ", footer: "", showPageNumbers: true, website: "", useCategoryCovers: true, catalogTitle: "ÜRÜN KATALOĞU", catalogTemplate: "akilli", coverLogo: { src: DEFAULT_PDF_COVER_LOGO } }
     };
 }
 function priceNumber(value) {
@@ -964,6 +1324,7 @@ function normalizePrice(price) {
         dims_en: typeof p.dims_en === "string" ? p.dims_en : "",
         amount: priceNumber(p.amount),
         contactOnly: !!p.contactOnly,
+        prices: p.prices && typeof p.prices === "object" ? p.prices : {},
         image: typeof p.image === "string" && p.image ? p.image : null
     })) : [];
     const legacyAmount = priceNumber(price.amount);
@@ -971,7 +1332,7 @@ function normalizePrice(price) {
     const autoCollect = price.autoCollect === undefined ? true : !!price.autoCollect;
     if (parts.length === 0 && legacyAmount !== null)
         parts.push({ id: uid(), name: "Ürün", name_en: "Product", dims: "", dims_en: "", amount: legacyAmount, contactOnly: !!price.contactOnly });
-    return { contactOnly: !!price.contactOnly && parts.length === 0, amount: legacyAmount, manualTotal, autoCollect, parts };
+    return { contactOnly: !!price.contactOnly && parts.length === 0, amount: legacyAmount, manualTotal, autoCollect, parts, totals: price.totals && typeof price.totals === "object" ? price.totals : {} };
 }
 function priceTotal(price) {
     const p = normalizePrice(price);
@@ -1026,6 +1387,7 @@ function normalizeData(input) {
         return base;
     const r = { ...base, ...input };
     r.preloadVersion = Number(input.preloadVersion) || 0; /* eski kayıtlar sürüm yükseltmesinden geçsin */
+    r.themeRev = Number(input.themeRev) || 0; /* eski kayıtlar Apple temasına bir kez geçirilsin */
     delete r.pin;
     /* Varsayılanlar yalnızca alan hiç yoksa uygulanır. Boş değerler kullanıcı tarafından silinebilir/değiştirilebilir. */
     if (typeof r.siteName !== "string")
@@ -1046,6 +1408,9 @@ function normalizeData(input) {
     r.logo.height = Number(r.logo.height) || r.logo.size;
     r.theme = { ...base.theme, ...(input.theme || {}) };
     r.currency = { ...base.currency, ...(input.currency || {}) };
+    /* Eski kayıtlar: "kur açık" bilgisi yoksa, kur değeri girilmişse açık kabul edilir. */
+    if (input.currency && typeof input.currency === "object" && input.currency.enabled === undefined)
+        r.currency.enabled = Number(input.currency.usdRate) > 0 || Number(input.currency.eurRate) > 0;
     r.pdf = { ...base.pdf, ...(input.pdf || {}) };
     if (!r.pdf.coverLogo || !r.pdf.coverLogo.src)
         r.pdf.coverLogo = { src: DEFAULT_PDF_COVER_LOGO };
@@ -1072,7 +1437,7 @@ function CachedImage({ src, ...props }) {
 function isDataImageSource(src) {
     return typeof src === 'string' && /^data:image\//i.test(src);
 }
-const IDB_NAME = "katalog_sablon_storage_v3";
+const IDB_NAME = "katalog_sablon_storage_v6";
 const IDB_STORE = "catalog";
 const IDB_KEY = "catalog";
 function openCatalogDB() {
@@ -1135,6 +1500,48 @@ async function idbSetRecord(record) {
         tx.onerror = () => { db.close(); reject(tx.error || new Error("IndexedDB yazma hatası")); };
         tx.onabort = () => { db.close(); reject(tx.error || new Error("IndexedDB yazma iptal edildi")); };
     });
+}
+/* Boş şablon başlangıcı: eski kayıttan SADECE para birimi ve kur değerleri alınır. */
+async function readLegacyCurrency() {
+    for (const k of LEGACY_DB_KEYS) {
+        try {
+            const raw = JSON.parse(lsGet(k) || "null");
+            const cur = (raw && (raw.data || raw).currency) || null;
+            if (cur && typeof cur === "object")
+                return cur;
+        }
+        catch (_) { }
+    }
+    try {
+        if (!window.indexedDB)
+            return null;
+        return await trTimeout(new Promise(resolve => {
+            const req = indexedDB.open(LEGACY_IDB_NAME, 1);
+            req.onupgradeneeded = () => { try { req.transaction.abort(); } catch (_) { } resolve(null); };
+            req.onerror = () => resolve(null);
+            req.onsuccess = () => {
+                const db = req.result;
+                try {
+                    if (!db.objectStoreNames.contains("catalog")) { db.close(); resolve(null); return; }
+                    const g = db.transaction("catalog", "readonly").objectStore("catalog").get("catalog");
+                    g.onsuccess = () => { const v = g.result; db.close(); resolve((v && (v.data || v).currency) || null); };
+                    g.onerror = () => { db.close(); resolve(null); };
+                }
+                catch (_) { try { db.close(); } catch (__) { } resolve(null); }
+            };
+        }), 3000);
+    }
+    catch (_) {
+        return null;
+    }
+}
+function blankTemplateData(currency) {
+    const d = defaultData();
+    if (currency && typeof currency === "object") {
+        const c = { ...d.currency, ...currency };
+        d.currency = sanitizeCatalogData({ ...d, currency: c }).currency;
+    }
+    return d;
 }
 async function loadLocal() {
     const local = readLocalRecord(DB_KEY);
@@ -1404,19 +1811,120 @@ async function trWaitBudget() {
         await new Promise(r => setTimeout(r, 1000));
     }
 }
+/* -------------------- MOBİLYA SÖZLÜĞÜ + AI ÇEVİRİ -------------------- */
+/* Sektör terimleri: tam eşleşmede sözlük kullanılır (en doğru sonuç); AI'ye de aynı terimler öğretilir. */
+const FURNITURE_GLOSSARY = {
+    "MAKAM TAKIMI": "Executive Office Set", "MAKAM TAKIMLARI": "Executive Office Sets", "VIP MAKAM TAKIMI": "VIP Executive Office Set", "VIP MAKAM TAKIMLARI": "VIP Executive Office Sets",
+    "MAKAM MASASI": "Executive Desk", "YÖNETİCİ MASASI": "Executive Desk", "YÖNETİCİ ÇALIŞMA MASASI": "Executive Office Desk", "PERSONEL MASASI": "Staff Desk", "PERSONEL TAKIMI": "Staff Office Set", "PERSONEL TAKIMLARI": "Staff Office Sets",
+    "ÇALIŞMA MASASI": "Office Desk", "ÇALIŞMA MASALARI": "Office Desks", "TOPLANTI MASASI": "Meeting Table", "TOPLANTI MASALARI": "Meeting Tables", "ETAJER": "Return", "ETAJERLİ MASA": "Desk with Return", "KESON": "Mobile Pedestal", "SABİT KESON": "Fixed Pedestal",
+    "DOSYA DOLABI": "Filing Cabinet", "KİTAPLIK": "Bookcase", "DOLAP": "Cabinet", "ALT DOLAP": "Low Cabinet", "ÜST DOLAP": "Wall Cabinet", "ARŞİV DOLABI": "Archive Cabinet", "SEHPA": "Coffee Table", "ORTA SEHPA": "Coffee Table", "YAN SEHPA": "Side Table",
+    "BANKO": "Reception Desk", "KARŞILAMA BANKOSU": "Reception Desk", "WORKSTATION": "Workstations", "OPERASYONEL MASA": "Workstation Desk",
+    "OFİS KOLTUĞU": "Office Chair", "OFİS KOLTUKLARI": "Office Chairs", "YÖNETİCİ KOLTUĞU": "Executive Chair", "MAKAM KOLTUĞU": "Executive Chair", "ÇALIŞMA KOLTUĞU": "Task Chair", "PERSONEL KOLTUĞU": "Staff Chair",
+    "MİSAFİR KOLTUĞU": "Guest Chair", "BEKLEME KOLTUĞU": "Waiting Chair", "BEKLEME KOLTUKLARI": "Waiting Chairs", "TOPLANTI SANDALYESİ": "Conference Chair", "FİLELİ KOLTUK": "Mesh Office Chair", "FİLELİ KOLTUKLAR": "Mesh Office Chairs",
+    "LOBİ KOLTUĞU": "Lobby Seating", "LOBY KOLTUKLARI": "Lobby Seating", "LOBİ KOLTUKLARI": "Lobby Seating", "KANEPE": "Sofa", "İKİLİ KANEPE": "Two-Seater Sofa", "ÜÇLÜ KANEPE": "Three-Seater Sofa", "TEKLİ KOLTUK": "Armchair", "BERJER": "Armchair", "PUF": "Pouf",
+    "KOLTUK TAKIMI": "Sofa Set", "KÖŞE TAKIMI": "Corner Sofa", "YATAK ODASI TAKIMI": "Bedroom Set", "YEMEK ODASI TAKIMI": "Dining Room Set", "GENÇ ODASI": "Teen Bedroom", "BEBEK ODASI": "Nursery Set",
+    "GARDIROP": "Wardrobe", "KOMODİN": "Nightstand", "ŞİFONYER": "Dresser", "KONSOL": "Console", "VESTİYER": "Hallway Unit", "TV ÜNİTESİ": "TV Unit", "YEMEK MASASI": "Dining Table", "SANDALYE": "Chair", "BAZA": "Bed Base", "KARYOLA": "Bed Frame", "YATAK": "Mattress",
+    "AKSESUARLAR": "Accessories", "AKSESUAR": "Accessory", "MASA": "Desk", "ÜNİTE": "Unit", "MÜDÜR": "Manager", "ŞEF": "Supervisor", "MİSAFİR": "Guest", "PERSONEL": "Staff", "YÖNETİCİ": "Executive"
+};
+function glossaryKey(s) { return String(s || "").toLocaleUpperCase("tr-TR").replace(/\s+/g, " ").trim(); }
+function glossaryExact(source) {
+    const en = FURNITURE_GLOSSARY[glossaryKey(source)];
+    if (!en)
+        return "";
+    const src = String(source).trim();
+    return src === src.toLocaleLowerCase("tr-TR") ? en.toLowerCase() : pdfMatchCase(src, en);
+}
+/* Çeviri motorlarının sık yaptığı mobilya hatalarını düzeltir, büyük harf biçimini kaynağa uydurur,
+   kaynaktaki sayılar (ölçü, adet, model kodu) çeviride yoksa sonucu reddeder. */
+const TR_POST_FIXES = [[/\bwhatnot\b|\bétag[eè]re\b|\betagere\b/gi, "return"], [/\bauthority (desk|table)s?\b/gi, "executive desk"], [/\bposition (desk|table)\b/gi, "executive desk"], [/\b(office|executive|staff|personnel) team(s)?\b/gi, (m, a, p) => a.replace(/personnel/i, "staff") + " set" + (p ? "s" : "")], [/\bstaff office team\b/gi, "staff office set"], [/\bpersonnel\b(?= (desk|chair|set))/gi, "staff"], [/\bcaisson\b/gi, "pedestal"], [/\bmeeting chair\b/gi, "conference chair"], [/\bbench(?= desk)/gi, "reception"]];
+function trNumbers(s) { return (String(s || "").match(/\d+(?:[.,]\d+)?/g) || []).map(x => x.replace(",", ".")); }
+function trPolish(source, out) {
+    let o = String(out || "").trim().replace(/^["'“”«»]+|["'“”«»]+$/g, "").trim();
+    if (!o)
+        return "";
+    for (const [re, rp] of TR_POST_FIXES)
+        o = o.replace(re, (...m) => { const w = m[0], r = typeof rp === "function" ? rp(...m) : rp; const words = w.split(/\s+/); if (words.length > 1 && words.every(x => /^[A-Z]/.test(x))) return r.replace(/\b[a-z]/g, c => c.toUpperCase()); return /^[A-Z]/.test(w) ? r.charAt(0).toUpperCase() + r.slice(1) : r; });
+    const src = String(source || "").trim();
+    const letters = src.replace(/[^A-Za-zÇĞİÖŞÜçğıöşü]/g, "");
+    if (letters.length > 1 && src === src.toLocaleUpperCase("tr-TR"))
+        o = o.toUpperCase();
+    const outNums = trNumbers(o);
+    for (const n of trNumbers(src))
+        if (!outNums.includes(n))
+            return "";
+    return o;
+}
+/* AI çeviri ayarı yalnızca bu cihazda saklanır; katalog verisine ve JSON yedeğine asla girmez. */
+const AI_CFG_KEY = "katalog_ai_cfg_v1";
+const AI_MODELS = [["claude-haiku-5-5", "Claude Haiku (hızlı, ekonomik)"], ["claude-sonnet-5-5", "Claude Sonnet (en iyi kalite)"]];
+function aiCfgLoad() {
+    try {
+        const c = JSON.parse(lsGet(AI_CFG_KEY) || "null") || {};
+        return { provider: c.provider === "claude" ? "claude" : "off", key: typeof c.key === "string" ? c.key.slice(0, 300) : "", model: AI_MODELS.some(m => m[0] === c.model) ? c.model : AI_MODELS[0][0] };
+    }
+    catch (_) {
+        return { provider: "off", key: "", model: AI_MODELS[0][0] };
+    }
+}
+function aiCfgSave(c) { lsSet(AI_CFG_KEY, JSON.stringify({ provider: c.provider, key: String(c.key || "").trim(), model: c.model })); }
+function aiActive() { const c = aiCfgLoad(); return c.provider === "claude" && c.key.length > 20; }
+const AI_TYPE_HINT = { product_name: "a product name", product_description: "a product description", price_part: "a price list line item (module or size name)", category: "a product category name" };
+async function claudeTranslate(source, type, opts = {}) {
+    const c = opts.cfg || aiCfgLoad();
+    if (c.provider !== "claude" || c.key.length < 20)
+        return null;
+    await trWaitBudget();
+    await enforceClientRateLimit("translation-ai", 50, 60 * 1000);
+    const glossary = Object.entries(FURNITURE_GLOSSARY).map(([k, v]) => k + " = " + v).join("; ");
+    const system = "You translate Turkish furniture catalog text (office and home furniture) into natural, professional catalog English. Reply with ONLY the English text: no quotes, no notes, no explanations, no markdown. Keep every number, dimension (e.g. 160x80x75 cm), model code and brand name exactly as written. Keep the same line breaks. Match the source capitalization style: ALL CAPS stays ALL CAPS, Title Case stays Title Case. Prefer these industry terms: " + glossary + ".";
+    const ctl = typeof AbortController === "function" ? new AbortController() : null, timer = setTimeout(() => ctl && ctl.abort(), 20000);
+    try {
+        const res = await fetch("https://api.anthropic.com/v1/messages", { method: "POST", signal: ctl ? ctl.signal : undefined, headers: { "content-type": "application/json", "x-api-key": c.key, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+            body: JSON.stringify({ model: c.model, max_tokens: Math.min(1500, 80 + source.length * 3), system, messages: [{ role: "user", content: "Translate " + (AI_TYPE_HINT[type] || "this text") + ":\n" + source }] }) });
+        if (!res.ok) {
+            if (opts.throwErrors) {
+                let msg = "HTTP " + res.status;
+                try { msg = (await res.json())?.error?.message || msg; } catch (_) { }
+                throw new Error(res.status === 401 ? "API anahtarı geçersiz." : res.status === 429 ? "Çok fazla istek; biraz bekleyin." : msg);
+            }
+            return null;
+        }
+        const json = await res.json();
+        const out = (Array.isArray(json?.content) ? json.content.filter(x => x && x.type === "text").map(x => x.text).join("") : "").trim();
+        const polished = trPolish(source, out);
+        return polished && trSaneOutput(source, polished) ? polished : null;
+    }
+    catch (e) {
+        if (opts.throwErrors)
+            throw e;
+        console.warn("AI çeviri yapılamadı:", e);
+        return null;
+    }
+    finally {
+        clearTimeout(timer);
+    }
+}
 async function aiTranslateResult(text, type = "general") {
     if (!text || !text.trim())
         return { text: "", good: false };
     const source = text.trim();
-    /* 0) Chrome'un cihaz içi Translator API'si: ağ trafiği yok, anında. Model yüklüyse kullanılır. */
+    /* 1) Sektör sözlüğü (tam eşleşme) — en doğru sonuç */
+    const g = glossaryExact(source);
+    if (g)
+        return { text: g, good: true };
+    /* 2) Gerçek AI çeviri (yönetimde Claude API anahtarı girildiyse) */
+    const ai = await claudeTranslate(source, type);
+    if (ai)
+        return { text: ai, good: true };
+    /* 3) Chrome'un cihaz içi Translator API'si: ağ trafiği yok, anında. Model yüklüyse kullanılır. */
     try {
         if (window.Translator && typeof window.Translator.create === "function" && typeof window.Translator.availability === "function") {
             const av = await trTimeout(window.Translator.availability({ sourceLanguage: "tr", targetLanguage: "en" }), 3000);
             if (av === "available") {
                 window.__ofTranslator = window.__ofTranslator || await trTimeout(window.Translator.create({ sourceLanguage: "tr", targetLanguage: "en" }), 6000);
-                const out = await trTimeout(window.__ofTranslator.translate(source), 8000);
-                if (out && out.trim())
-                    return { text: out.trim(), good: true };
+                const out = trPolish(source, await trTimeout(window.__ofTranslator.translate(source), 8000));
+                if (out)
+                    return { text: out, good: true };
             }
         }
     }
@@ -1481,8 +1989,9 @@ async function aiTranslateResult(text, type = "general") {
         if (response.ok) {
             const json = await response.json();
             const translated = Array.isArray(json?.[0]) ? json[0].map(x => Array.isArray(x) ? x[0] : "").join("").trim() : "";
-            if (translated)
-                return { text: preserveTechnicalTokens(source, translated), good: true };
+            const polished = trPolish(source, translated);
+            if (polished)
+                return { text: preserveTechnicalTokens(source, polished), good: true };
         }
     }
     catch (e) {
@@ -1674,7 +2183,7 @@ async function translateCachedResult(text, type) {
     if (!text || !text.trim())
         return { text: "", good: false };
     const source = String(text).trim();
-    const key = cacheKey(source, type);
+    const key = cacheKey(source, aiActive() ? type + "|ai" : type);
     const genericPlaceholders = new Set(["new product", "new part", "new category"]);
     const isBadPlaceholder = (value) => {
         const v = String(value || "").trim().toLocaleLowerCase("en-US");
@@ -1714,10 +2223,12 @@ async function translateProduct(item, setStatus) {
 /* Sayı kutusu: yazarken metin olduğu gibi kalır (silinebilir, virgül/nokta yazılabilir);
    geçerli her değer anında kaydedilir, kutudan çıkınca kayıtlı değere göre yeniden gösterilir. */
 function NumField(props) {
-    const { value, onValue, allowEmpty = true, min = null, max = null, parse = priceNumber, format = null, ...rest } = props;
+    const { value, onValue, allowEmpty = true, min = null, max = null, parse = priceNumber, format = null, keepDraft = false, ...rest } = props;
     const fmt = v => (v === null || v === undefined || v === "") ? "" : (format ? format(v) : String(v));
     const [draft, setDraft] = useState(null);
-    const shown = draft !== null ? draft : fmt(value);
+    const kept = useRef(null);
+    const keptOk = keepDraft && kept.current !== null && (kept.current.trim() ? parse(kept.current) === value : (value === null || value === undefined || value === ""));
+    const shown = draft !== null ? draft : (keptOk ? kept.current : fmt(value));
     return React.createElement("input", { ...rest, type: "text", autoComplete: "off", value: shown,
         onFocus: e => { setDraft(fmt(value)); if (rest.onFocus) rest.onFocus(e); },
         onChange: e => {
@@ -1729,7 +2240,7 @@ function NumField(props) {
             if ((min !== null && n < min) || (max !== null && n > max)) return;
             onValue(n);
         },
-        onBlur: e => { setDraft(null); if (rest.onBlur) rest.onBlur(e); },
+        onBlur: e => { if (keepDraft) kept.current = draft; setDraft(null); if (rest.onBlur) rest.onBlur(e); },
         onKeyDown: e => { if (e.key === "Enter") e.currentTarget.blur(); if (rest.onKeyDown) rest.onKeyDown(e); } });
 }
 function Icon({ type, size = 18, className }) {
@@ -1811,6 +2322,71 @@ function ColorInput({ label, value, onChange }) { return React.createElement("la
     React.createElement("span", { className: "text-xs text-neutral-400" }, label),
     React.createElement("input", { type: "color", value: value || "#000000", onChange: e => onChange(e.target.value), className: "w-9 h-9 rounded-lg border border-neutral-700 bg-transparent cursor-pointer" })); }
 /* -------------------- SHARED PRICE ENGINE FOR PDF + WEB -------------------- */
+/* KUR SİSTEMİ
+   Kur AÇIK  : fiyatlar TL girilir, USD/EUR girilen kurla otomatik hesaplanır.
+   Kur KAPALI: her para biriminin fiyatı ayrı girilir. Fiyat alanı (amount) her zaman yönetimde seçili
+               "fiyat girilen para birimi"nin (editCur) değerini taşır; diğer para birimleri part.prices içinde durur. */
+const CUR_IDS = ["TRY", "USD", "EUR"];
+function cleanCurMap(m) {
+    const o = {};
+    if (m && typeof m === "object")
+        for (const k of CUR_IDS) {
+            const n = priceNumber(m[k]);
+            if (n !== null)
+                o[k] = n;
+        }
+    return o;
+}
+function curEnabled(d) { return !!d?.currency?.enabled; }
+function curEditId(d) { const v = d?.currency?.editCur; return CUR_IDS.includes(v) ? v : "TRY"; }
+function curRate(d, id) { if (id === "TRY") return 1; const n = Number(id === "USD" ? d?.currency?.usdRate : d?.currency?.eurRate); return Number.isFinite(n) && n > 0 ? n : null; }
+function hasPricesIn(d, cur) {
+    const edit = curEditId(d);
+    for (const c of (d?.categories || []))
+        for (const it of (c.items || [])) {
+            const p = it.price;
+            if (!p)
+                continue;
+            for (const pt of (Array.isArray(p.parts) ? p.parts : []))
+                if (cur === edit ? priceNumber(pt.amount) !== null : (pt.prices && priceNumber(pt.prices[cur]) !== null))
+                    return true;
+            if (cur === edit ? priceNumber(p.manualTotal) !== null : (p.totals && priceNumber(p.totals[cur]) !== null))
+                return true;
+        }
+    return false;
+}
+/* Sitede seçilebilecek para birimleri */
+function availableCurrencies(d) {
+    if (curEnabled(d))
+        return CUR_IDS.filter(id => curRate(d, id) !== null);
+    const list = CUR_IDS.filter(id => hasPricesIn(d, id));
+    return list.length ? list : [curEditId(d)];
+}
+/* Kur kapalıyken veriyi istenen para biriminin elle girilmiş fiyatlarına çevirir (görüntüleme + PDF). */
+function projectCurrency(d, cur) {
+    if (!d || curEnabled(d) || cur === curEditId(d))
+        return d;
+    return { ...d, currency: { ...d.currency, selected: cur }, categories: (d.categories || []).map(c => ({ ...c, items: (c.items || []).map(it => {
+            if (!it.price)
+                return it;
+            const p = normalizePrice(it.price), tot = p.totals || {};
+            return { ...it, price: { ...p, manualTotal: priceNumber(tot[cur]), parts: p.parts.map(pt => ({ ...pt, amount: priceNumber((pt.prices || {})[cur]) })) } };
+        }) })) };
+}
+/* Kur kapalıyken "fiyat girilen para birimi" değişince değerler yer değiştirir (veri kaybolmaz). */
+function switchEditCurrency(d, next) {
+    const prev = curEditId(d);
+    if (!CUR_IDS.includes(next) || prev === next)
+        return d;
+    const swap = (cur, map) => { const m = { ...(map || {}) }; if (priceNumber(cur) !== null) m[prev] = priceNumber(cur); else delete m[prev]; const v = m[next] !== undefined ? priceNumber(m[next]) : null; delete m[next]; return [v, m]; };
+    return { ...d, currency: { ...d.currency, editCur: next }, categories: (d.categories || []).map(c => ({ ...c, items: (c.items || []).map(it => {
+            if (!it.price)
+                return it;
+            const p = normalizePrice(it.price);
+            const [mt, totals] = swap(p.manualTotal, p.totals);
+            return { ...it, price: { ...p, manualTotal: mt, totals, parts: p.parts.map(pt => { const [a, prices] = swap(pt.amount, pt.prices); return { ...pt, amount: a, prices }; }) } };
+        }) })) };
+}
 function getCurrencyByData(source) {
     const id = source?.currency?.selected || "TRY";
     return CURRENCIES.find(x => x.id === id) || CURRENCIES[0];
@@ -1821,6 +2397,9 @@ function convertPriceByData(source, amount) {
     const n = Number(amount), c = source?.currency?.selected || "TRY";
     if (!Number.isFinite(n))
         return null;
+    /* Kur kapalı: fiyat zaten seçili para biriminde girilmiştir, çevrilmez. */
+    if (!curEnabled(source))
+        return n;
     if (c === "USD") {
         const r = Number(source?.currency?.usdRate);
         return r > 0 ? n / r : null;
@@ -2770,7 +3349,7 @@ async function pdfFlowPages(data, lang, preparedImages, pages, opts = {}) {
     await flush();
 }
 async function buildPriceListPDF(rawData, lang) {
-    const source = normalizeData(rawData), currency = source.currency?.selected || "TRY";
+    const norm = normalizeData(rawData), source = projectCurrency(norm, norm.currency?.selected || "TRY") || norm, currency = source.currency?.selected || "TRY";
     /* PDF dili artık para biriminden değil, sitenin seçili dilinden gelir. */
     const pdfLang = lang === "EN" ? "EN" : lang === "TR" ? "TR" : (currency === "TRY" ? "TR" : "EN");
     pdfAccentCurrent = pdfCatalogAccent(source);
@@ -3037,21 +3616,26 @@ function pdfRenderDergiPage(data, lang, category, items, startIndex, pageNo, ass
     return { content: c, images: reg.map, pageNo };
 }
 const PDF_CATALOG_TEMPLATES = [
+    { id: "akilli", name: "Akıllı (otomatik)", desc: "Ürünlere göre kendini ayarlar: takımlar tek sayfa, kalabalık kategoriler sayfada 2, ölçü/model ürünleri sıkışık akış düzeninde." },
     { id: "klasik", name: "Klasik Liste", desc: "Fiyat listesiyle aynı düzen; fiyat yerine ölçüler ve açıklama. Sayfa başına 7 ürün." },
     { id: "vitrin", name: "Vitrin", desc: "Her kategori için ayrı seçilir: her model tek sayfada, sayfa başına 2 model veya akıllı akış düzeni." },
     { id: "izgara", name: "Izgara", desc: "Sayfa başına 6 ürün kartı. Geniş ürün yelpazesine hızlı göz atma." },
     { id: "dergi", name: "Dergi", desc: "Sayfa başına 2 ürün, görseller sırayla solda ve sağda. Sunum havası." }
 ];
-function pdfCatalogTemplateId(v) { return PDF_CATALOG_TEMPLATES.some(t => t.id === v) ? v : "vitrin"; }
+function pdfCatalogTemplateId(v) { return PDF_CATALOG_TEMPLATES.some(t => t.id === v) ? v : "akilli"; }
 /* Vitrin şablonunda her kategorinin sayfa düzeni: full = her model tek sayfa, duo = sayfa başına 2 model, flow = akıllı akış */
 const PDF_VITRIN_MODES = Object.freeze([
-    { id: "full", name: "Tek sayfa" }, { id: "duo", name: "Sayfada 2" }, { id: "flow", name: "Akış" }
+    { id: "auto", name: "Otomatik" }, { id: "full", name: "Tek sayfa" }, { id: "duo", name: "Sayfada 2" }, { id: "flow", name: "Akış" }
 ]);
 function vitrinModeOf(data, categoryId) {
     const v = data?.pdf?.vitrinModes?.[categoryId];
-    if (PDF_VITRIN_MODES.some(m => m.id === v))
+    if (v && v !== "auto" && PDF_VITRIN_MODES.some(m => m.id === v))
         return v;
-    return categoryLayoutOf(data, categoryId) === "table" ? "full" : "flow";
+    /* Otomatik: takım ürünleri büyük sunulur; kategori kalabalıksa sayfaya 2 ürün; ölçü/model ürünleri akış düzeninde. */
+    if (categoryLayoutOf(data, categoryId) !== "table")
+        return "flow";
+    const cat = (data?.categories || []).find(c => c.id === categoryId), n = (cat?.items || []).length;
+    return n > 8 ? "duo" : "full";
 }
 async function pdfPrepareCatalogAssets(data, tpl) {
     const maxFor = { klasik: 1000, vitrin: 1600, izgara: 900, dergi: 1300 }[tpl] || 1000;
@@ -3096,8 +3680,10 @@ async function buildCatalogPDF(rawData, lang, templateId) {
 async function pdfBuildCatalogInner(rawData, lang, templateId) {
     pdfAccentCurrent = pdfCatalogAccent(normalizeData(rawData));
     const source = normalizeData(rawData), L = lang === "EN" ? "EN" : "TR";
-    const tpl = pdfCatalogTemplateId(templateId || source.pdf?.catalogTemplate);
-    const data = { ...source, categories: pdfRealCategories(source) };
+    const tplRaw = pdfCatalogTemplateId(templateId || source.pdf?.catalogTemplate);
+    /* Akıllı şablon = Vitrin + her kategori için otomatik sayfa düzeni (elle seçilen vitrin ayarları yok sayılır). */
+    const tpl = tplRaw === "akilli" ? "vitrin" : tplRaw;
+    const data = { ...source, categories: pdfRealCategories(source), pdf: tplRaw === "akilli" ? { ...(source.pdf || {}), vitrinModes: {} } : source.pdf };
     const assets = await pdfPrepareCatalogAssets(data, tpl);
     const title = L === "EN" ? "PRODUCT CATALOG" : (String(source.pdf?.catalogTitle || "").trim() || "ÜRÜN KATALOĞU");
     const pages = [await renderPdfCoverPage(data, L, title)];
@@ -3682,7 +4268,7 @@ try {
 catch (_) { }
 function persistPinLock() {
     try {
-        localStorage.setItem(PIN_LOCK_STORAGE_KEY, JSON.stringify({ blockedUntil: pinBlockedUntil, failures: pinFailureCount, failedAt: Date.now() }));
+        lsSet(PIN_LOCK_STORAGE_KEY, JSON.stringify({ blockedUntil: pinBlockedUntil, failures: pinFailureCount, failedAt: Date.now() }));
     }
     catch (_) { }
 }
@@ -3690,7 +4276,7 @@ function clearPinLock() {
     pinFailureCount = 0;
     pinBlockedUntil = 0;
     try {
-        localStorage.removeItem(PIN_LOCK_STORAGE_KEY);
+        lsRemove(PIN_LOCK_STORAGE_KEY);
     }
     catch (_) { }
 }
@@ -3788,7 +4374,7 @@ function AdmIcon({ name, size = 18 }) {
 
 function App() {
     const [data, setData] = useState(null), [loading, setLoading] = useState(true), [saving, setSaving] = useState(false), [saved, setSaved] = useState(false), [toast, setToast] = useState(""), [activeCat, setActiveCat] = useState(null), [openCategories, setOpenCategories] = useState({}), [currencyMenuOpen, setCurrencyMenuOpen] = useState(false), [language, setLanguage] = useState(() => lsGet(LANG_KEY) === "EN" ? "EN" : "TR"), [adminSection, setAdminSection] = useState("panel"), [search, setSearch] = useState(""), [searchOpen, setSearchOpen] = useState(false), [viewCurrency, setViewCurrency] = useState(() => { try {
-        const v = localStorage.getItem(VIEW_CURRENCY_KEY);
+        const v = lsGet(VIEW_CURRENCY_KEY);
         return ["TRY", "USD", "EUR"].includes(v) ? v : null;
     }
     catch (_) {
@@ -3797,6 +4383,7 @@ function App() {
     /* Yeni yönetim paneli durumu */
     const [admView, setAdmView] = useState("table"), [admSel, setAdmSel] = useState(() => new Set()), [admEdit, setAdmEdit] = useState(null), [admTab, setAdmTab] = useState("bilgi"), [admCat, setAdmCat] = useState(""), [admQuery, setAdmQuery] = useState(""), [admIssues, setAdmIssues] = useState(false), [admBulk, setAdmBulk] = useState({ mode: "pct", value: "" }), [admLimit, setAdmLimit] = useState(80), [admAddPick, setAdmAddPick] = useState(false), [admDrag, setAdmDrag] = useState(null);
     const admBaseRef = useRef(null);
+    const [aiCfg, setAiCfg] = useState(() => aiCfgLoad()), [aiTest, setAiTest] = useState("");
     useEffect(() => { document.documentElement.lang = language.toLowerCase(); }, [language]);
     useEffect(() => {
         /* Kart galerileri hepsi aynı anda değil, sırayla ve sakin bir tempoda döner.
@@ -4011,7 +4598,16 @@ function App() {
                 const best = await loadLocal();
                 if (cancelled)
                     return;
-                let initial = best?.data || fastLocal?.data || defaultData();
+                let initial = best?.data || fastLocal?.data || null;
+                const freshStart = !initial;
+                if (freshStart)
+                    initial = blankTemplateData(await readLegacyCurrency());
+                /* Apple görünümüne geçiş: eski kayıttaki tema bir kez Apple temasına çevrilir (arka plan görseli korunur). */
+                let themeMigrated = false;
+                if (Number(initial.themeRev) < 2) {
+                    initial = { ...initial, theme: { ...THEMES[0], bgImage: initial.theme?.bgImage || null }, themeRev: 2 };
+                    themeMigrated = true;
+                }
                 /* Eski sürümlerden kalan düz metin PIN'i güvenli hash'e taşı ve veriden sil. */
                 try {
                     await migrateLegacyPin(best?.rawPin ?? fastLocal?.rawPin);
@@ -4020,7 +4616,7 @@ function App() {
                     console.warn("PIN taşınamadı:", e);
                 }
                 initial = sanitizeCatalogData(initial);
-                if (best || fastLocal)
+                if (best || fastLocal || freshStart || themeMigrated)
                     await saveLocal(initial).catch(() => { });
                 setData(initial);
                 requestPersistentStorage().catch(() => { });
@@ -4254,7 +4850,7 @@ function App() {
                 if (!prev || !done.length)
                     return;
                 const baseRef = (typeof admBaseRef !== "undefined") ? admBaseRef : null;
-                const wasClean = !panelOpenRef.current || !panelSnapshot.current || (baseRef ? prev === baseRef.current : JSON.stringify(prev) === JSON.stringify(panelSnapshot.current));
+                const wasClean = !panelOpenRef.current || !panelSnapshot.current || (baseRef && prev === baseRef.current) || JSON.stringify(prev) === JSON.stringify(panelSnapshot.current);
                 const next = JSON.parse(JSON.stringify(prev));
                 applyJobs(next, done);
                 dataRef.current = next;
@@ -4331,6 +4927,23 @@ function App() {
     function showToast(message) { setToast(message); if (toastTimerRef.current)
         clearTimeout(toastTimerRef.current); toastTimerRef.current = setTimeout(() => setToast(""), 3500); }
     /* Kalıcı kayıt yalnızca admin açıkça Kaydet ve Kapat'a bastığında yapılır. */
+    function updateDataQuiet(callback) {
+        setData(p => {
+            if (!p)
+                return p;
+            const copy = JSON.parse(JSON.stringify(p));
+            callback(copy);
+            const next = sanitizeCatalogData(copy);
+            const wasClean = !admBaseRef.current || p === admBaseRef.current;
+            if (wasClean && panelSnapshot.current) {
+                admBaseRef.current = next;
+                panelSnapshot.current = JSON.parse(JSON.stringify(next));
+                saveLocal(next).catch(() => { });
+            }
+            dataRef.current = next;
+            return next;
+        });
+    }
     function updateData(callback) {
         setData(p => {
             if (!p)
@@ -4344,6 +4957,73 @@ function App() {
             /* Kalıcı kayıt yalnızca explicit Save ile yapılır. */
             return protectedCopy;
         });
+    }
+    function updateAiCfg(patch) {
+        setAiCfg(prev => { const next = { ...prev, ...patch }; aiCfgSave(next); return next; });
+        setAiTest("");
+    }
+    async function testAiTranslation() {
+        setAiTest("Deneniyor…");
+        try {
+            const out = await claudeTranslate("Yönetici masası, 2 çekmeceli keson ile 180x90x75 cm", "product_description", { cfg: { ...aiCfg, provider: "claude" }, throwErrors: true });
+            setAiTest(out ? "Çalışıyor: \u201C" + out + "\u201D" : "Yanıt alınamadı. Anahtarı kontrol edin.");
+        }
+        catch (e) {
+            setAiTest("Hata: " + (e?.message || "bağlantı kurulamadı"));
+        }
+    }
+    async function retranslateAll() {
+        const cur = dataRef.current || data;
+        if (!cur)
+            return;
+        if (navigator.onLine === false) {
+            showToast("İnternet bağlantısı yok; bağlantı gelince tekrar deneyin.");
+            return;
+        }
+        if (!(await uiConfirm("Kategori, ürün, açıklama ve fiyat kalemlerinin İngilizceleri silinip baştan çevrilir. Elle yazdığınız İngilizce metinler de yenilenir.", { title: "Tüm İngilizce metinler yeniden çevrilsin mi?", icon: "alert", okText: "Yeniden çevir" })))
+            return;
+        const next = JSON.parse(JSON.stringify(cur));
+        for (const f of ["subtitle", "eyebrow"])
+            next[f + "_en"] = "";
+        for (const c of (next.categories || [])) {
+            c.name_en = "";
+            for (const it of (c.items || [])) {
+                it.name_en = "";
+                it.desc_en = "";
+                delete it.name_src;
+                delete it.desc_src;
+                for (const pt of ((it.price && Array.isArray(it.price.parts)) ? it.price.parts : [])) {
+                    pt.name_en = "";
+                    delete pt.name_src;
+                }
+            }
+        }
+        const clean = sanitizeCatalogData(next);
+        dataRef.current = clean;
+        setData(clean);
+        setSaved(false);
+        const set = trPendingLoad();
+        trMissingKeys(clean).forEach(k => set.add(k));
+        trPendingSave(set);
+        showToast(set.size + " alan yeniden çevriliyor…");
+        autoTranslateMissing(clean).catch(() => { });
+    }
+    function setEditCurrency(next) {
+        updateData(x => { const y = switchEditCurrency(x, next); Object.assign(x, y); });
+        showToast(next === "TRY" ? "Fiyatları TL olarak giriyorsunuz." : `Fiyatları ${next} olarak giriyorsunuz.`);
+    }
+    function setCurrencyEnabled(on) {
+        updateData(x => {
+            const y = on ? switchEditCurrency(x, "TRY") : x;
+            Object.assign(x, y);
+            x.currency = { ...x.currency, enabled: !!on };
+        });
+        showToast(on ? "Kur açık: fiyatları TL girin, USD/EUR kurla hesaplanır." : "Kur kapalı: her para biriminin fiyatını ayrı girin.");
+    }
+    function admCurSwitch() {
+        if (curEnabled(data))
+            return null;
+        return React.createElement("div", { className: "adm-seg", role: "group", "aria-label": "Fiyat girilen para birimi", title: "Fiyatları hangi para biriminde giriyorsunuz?" }, CURRENCIES.map(c => React.createElement("button", { key: c.id, type: "button", "aria-pressed": curEditId(data) === c.id, onClick: () => setEditCurrency(c.id) }, c.symbol + " " + c.name)));
     }
     function setPath(path, value) { updateData(copy => { let target = copy; for (let i = 0; i < path.length - 1; i++) {
         const key = path[i];
@@ -4372,7 +5052,7 @@ function App() {
                     return;
                 if (en)
                     trPendingRemove(["general|" + field]);
-                updateData(copy => {
+                updateDataQuiet(copy => {
                     if (copy[field] === value)
                         copy[enField] = en || "";
                 });
@@ -4386,9 +5066,13 @@ function App() {
     function openCategory(id) { setOpenCategories(p => ({ ...p, [id]: true })); }
     function viewCurrencyData() {
         /* Ziyaretçinin para birimi seçimi kataloğun varsayılanını DEĞİŞTİRMEZ; ayrı saklanır. */
-        if (!data || panelOpen || !viewCurrency)
+        if (!data)
             return data;
-        return { ...data, currency: { ...(data.currency || {}), selected: viewCurrency } };
+        const avail = availableCurrencies(data);
+        let cur = (!panelOpen && viewCurrency) ? viewCurrency : data.currency?.selected;
+        if (!avail.includes(cur))
+            cur = avail.includes(data.currency?.selected) ? data.currency.selected : avail[0];
+        return { ...data, currency: { ...(data.currency || {}), selected: cur } };
     }
     function getCurrency() { return getCurrencyByData(viewCurrencyData()); }
     function convertPrice(amount) { return convertPriceByData(viewCurrencyData(), amount); }
@@ -4479,7 +5163,7 @@ function App() {
                 const en = tr_2.good ? tr_2.text : "";
                 if (categoryTranslationSeq.current[key] !== seq)
                     return;
-                updateData(x => { x.categories = x.categories.map(c => c.id === id && c.name === value ? { ...c, name_en: en || "" } : c); });
+                updateDataQuiet(x => { x.categories = x.categories.map(c => c.id === id && c.name === value ? { ...c, name_en: en || "" } : c); });
             }
             catch (e) {
                 console.warn("Kategori otomatik çevirisi başarısız:", e);
@@ -4551,7 +5235,7 @@ function App() {
                     return;
                 if (en)
                     trPendingRemove(["item|" + categoryId + "|" + item.id + "|" + field]);
-                updateData(x => { x.categories = x.categories.map(c => c.id !== categoryId ? c : { ...c, items: c.items.map(i => i.id === item.id && i[field] === value ? { ...i, [field + "_en"]: en || "", ...(en ? { [field + "_src"]: value } : {}) } : i) }); });
+                updateDataQuiet(x => { x.categories = x.categories.map(c => c.id !== categoryId ? c : { ...c, items: c.items.map(i => i.id === item.id && i[field] === value ? { ...i, [field + "_en"]: en || "", ...(en ? { [field + "_src"]: value } : {}) } : i) }); });
             }
             catch (e) {
                 console.warn("Ürün otomatik çevirisi başarısız:", e);
@@ -4616,7 +5300,7 @@ function App() {
                     return;
                 if (en)
                     trPendingRemove(["part|" + categoryId + "|" + itemId + "|" + partId]);
-                updateData(x => { x.categories = x.categories.map(c => c.id !== categoryId ? c : { ...c, items: c.items.map(i => { if (i.id !== itemId)
+                updateDataQuiet(x => { x.categories = x.categories.map(c => c.id !== categoryId ? c : { ...c, items: c.items.map(i => { if (i.id !== itemId)
                         return i; const p = normalizePrice(i.price); return { ...i, price: { ...p, parts: p.parts.map(part => part.id === partId && part.name === value ? { ...part, name_en: en || "", ...(en ? { name_src: value } : {}) } : part) } }; }) }); });
             }
             catch (e) {
@@ -4642,6 +5326,7 @@ function App() {
         try {
             /* Yerel kayıt: localStorage + IndexedDB (bu cihaz). */
             const result = await saveLocal(clean);
+            dataRef.current = result.data;
             setData(result.data);
             /* Kaydın ardından eksik İngilizce metinler arka planda otomatik çevrilir. */
             setTimeout(() => { autoTranslateMissing(result.data).catch(() => { }); }, 0);
@@ -4655,7 +5340,7 @@ function App() {
                 setPanelOpen(false);
             }
             setSaved(true);
-            showToast(t(language, 'saved'));
+            showToast(STORAGE_OK ? t(language, 'saved') : "Kaydedildi (yalnızca bu oturumda). Kalıcı kayıt için dosyayı kendi sitenize yükleyin.");
             setTimeout(() => setSaved(false), 1200);
         }
         catch (e) {
@@ -5094,6 +5779,27 @@ function App() {
         setData(next);
         showToast("Genel ayarlar varsayılana döndürüldü. Kaydet'e basın.");
     }
+    async function resetAllContent() {
+        if (!(await uiConfirm("Tüm kategoriler, ürünler, fotoğraflar, logolar, kategori kapakları, site adı ve telefon silinir. Para birimi, kurlar, otomatik çeviri, tema ve PDF ayarları korunur. Kaydet'e basana kadar hiçbir şey kalıcı olarak silinmez.", { title: "Tüm içerik sıfırlansın mı?", danger: true, okText: "Sıfırla" })))
+            return;
+        const base = defaultData();
+        const next = normalizeData(data);
+        next.categories = [];
+        next.siteName = base.siteName;
+        next.siteName_en = base.siteName_en;
+        next.subtitle = base.subtitle;
+        next.subtitle_en = base.subtitle_en;
+        next.eyebrow = base.eyebrow;
+        next.eyebrow_en = base.eyebrow_en;
+        next.phone = base.phone;
+        next.logo = { ...base.logo };
+        next.theme = { ...next.theme, bgImage: null };
+        next.pdf = { ...next.pdf, coverLogo: { src: DEFAULT_PDF_COVER_LOGO }, footer: "", website: "", categoryLayouts: {}, vitrinModes: {} };
+        setData(next);
+        setActiveCat(null);
+        trPendingSave(new Set());
+        showToast("Tüm içerik temizlendi. Kalıcı olması için Kaydet'e basın.");
+    }
     async function handleImport(e) {
         const file = e.target.files?.[0];
         if (!file)
@@ -5119,14 +5825,18 @@ function App() {
         }
     }
     if (loading)
-        return React.createElement("div", { style: { minHeight: "100vh", background: "#141416", color: "#aaa", display: "flex", alignItems: "center", justifyContent: "center" } }, language === "EN" ? "Loading data…" : "Veriler yükleniyor…");
+        return React.createElement("div", { style: { minHeight: "100vh", background: "#F5F5F7", color: "#6E6E73", fontFamily: "-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Inter,system-ui,sans-serif", display: "flex", alignItems: "center", justifyContent: "center" } }, language === "EN" ? "Loading data…" : "Veriler yükleniyor…");
     if (!data)
-        return React.createElement("div", { style: { minHeight: "100vh", background: "#141416", color: "#f87171", display: "flex", alignItems: "center", justifyContent: "center" } }, language === "EN" ? "Site data could not be loaded." : "Site verileri yüklenemedi.");
+        return React.createElement("div", { style: { minHeight: "100vh", background: "#F5F5F7", color: "#D70015", display: "flex", alignItems: "center", justifyContent: "center" } }, language === "EN" ? "Site data could not be loaded." : "Site verileri yüklenemedi.");
     const categories = data.categories || [];
+    /* Ziyaretçi, seçtiği para biriminin fiyatlarını görür (kur kapalıyken elle girilen fiyatlar). */
+    const viewCurrencyId = viewCurrencyData()?.currency?.selected || "TRY";
+    const siteCategories = (projectCurrency(data, viewCurrencyId) || data).categories || [];
+    const siteCurrencies = CURRENCIES.filter(c => availableCurrencies(data).includes(c.id));
     /* Ziyaretçi yalnızca ürünü olan kategorileri görür (yönetim paneli hepsini gösterir). */
-    const publicCategories = categories.filter(c => (c.items || []).length > 0);
+    const publicCategories = siteCategories.filter(c => (c.items || []).length > 0);
     const activeCategory = publicCategories.find(c => c.id === activeCat) || publicCategories[0] || null;
-    const allProducts = categories.flatMap(c => (c.items || []).map(i => ({ ...i, categoryName: c.name, categoryName_en: c.name_en })));
+    const allProducts = siteCategories.flatMap(c => (c.items || []).map(i => ({ ...i, categoryName: c.name, categoryName_en: c.name_en })));
     const q = safeSearchText(deferredSearch).replace(/\s+/g, " ").toLocaleLowerCase("tr-TR");
     const qWords = q ? q.split(" ").filter(Boolean) : [];
     const visibleProducts = q ? allProducts.filter(i => {
@@ -5178,7 +5888,9 @@ function App() {
     };
 
     /* ==================== YENİ YÖNETİM PANELİ (Komuta Merkezi + Akıllı Tablo + Yan Düzenleyici) ==================== */
-    const admFmt = n => (n === null || n === undefined || !Number.isFinite(Number(n))) ? "—" : Math.floor(Number(n)).toLocaleString("tr-TR") + " ₺";
+    const admCurId = curEnabled(data) ? "TRY" : curEditId(data);
+    const admSym = (CURRENCIES.find(c => c.id === admCurId) || CURRENCIES[0]).symbol;
+    const admFmt = n => (n === null || n === undefined || !Number.isFinite(Number(n))) ? "—" : (admCurId === "TRY" ? Math.floor(Number(n)).toLocaleString("tr-TR") + " ₺" : admSym + Math.floor(Number(n)).toLocaleString("en-US"));
     const admKey = (cid, id) => cid + "/" + id;
     const admImgs = it => (Array.isArray(it.images) && it.images.filter(Boolean).length ? it.images.filter(Boolean) : (it.image ? [it.image] : []));
     const admAll = categories.flatMap(c => (c.items || []).map(it => ({ c, it })));
@@ -5253,7 +5965,7 @@ function App() {
             showToast("Değer çok büyük.");
             return;
         }
-        const desc = admBulk.mode === "pct" ? `%${v > 0 ? "+" : ""}${v}` : `${v > 0 ? "+" : ""}${Math.floor(v).toLocaleString("tr-TR")} ₺`;
+        const desc = admBulk.mode === "pct" ? `%${v > 0 ? "+" : ""}${v}` : `${v > 0 ? "+" : ""}${Math.floor(v).toLocaleString("tr-TR")} ${admSym}`;
         if (!(await uiConfirm(`${keys.length} ürünün tüm fiyatlarına ${desc} uygulanacak. \u201CKaydet ve yayınla\u201Dya basana kadar paneli kaydetmeden kapatarak geri alabilirsiniz.`, { title: "Toplu fiyat güncellensin mi?", icon: "alert", okText: "Uygula" })))
             return;
         const ks = new Set(keys);
@@ -5422,12 +6134,12 @@ function App() {
                     React.createElement("div", { className: "adm-stat-s " + (trMissing ? "adm-warn" : "adm-ok") }, trMissing ? "alanın çevirisi eksik" : "Hepsi çevrildi"),
                     React.createElement("button", { type: "button", className: "adm-linkbtn", disabled: trBusy > 0, onClick: translateMissingNow }, trBusy > 0 ? "Çevriliyor… (" + trBusy + ")" : "Eksik çevirileri tamamla")),
                 React.createElement("div", { className: "adm-card adm-stat" },
-                    React.createElement("div", { className: "adm-stat-l" }, "Kur (USD / EUR)"),
-                    React.createElement("div", { className: "adm-stat-v" },
-                        data.currency.usdRate,
-                        " / ",
-                        data.currency.eurRate),
-                    React.createElement("button", { type: "button", className: "adm-linkbtn", onClick: () => admGo("fiyat") }, "Kurlar\u0131 g\u00FCncelle"))),
+                    React.createElement("div", { className: "adm-stat-l" }, curEnabled(data) ? "Kur (USD / EUR)" : "Para birimleri"),
+                    React.createElement("div", { className: "adm-stat-v" }, curEnabled(data)
+                        ? [String(data.currency.usdRate ?? "—").replace(".", ","), " / ", String(data.currency.eurRate ?? "—").replace(".", ",")].join("")
+                        : availableCurrencies(data).join(" · ")),
+                    React.createElement("div", { className: "adm-stat-s" }, curEnabled(data) ? "Kur açık · otomatik çeviri" : "Kur kapalı · fiyatlar ayrı ayrı"),
+                    React.createElement("button", { type: "button", className: "adm-linkbtn", onClick: () => admGo("fiyat") }, "Kur ayarlar\u0131"))),
             React.createElement("div", { className: "adm-grid4" },
                 React.createElement("button", { type: "button", className: "adm-action adm-action-gold", onClick: () => setAdmAddPick(true) },
                     React.createElement(AdmIcon, { name: "plus", size: 22 }),
@@ -5498,6 +6210,7 @@ function App() {
                     React.createElement("h1", { className: "adm-h1" }, "\u00DCr\u00FCnler & Fiyatlar"),
                     React.createElement("p", { className: "adm-sub" }, admView === "table" ? "Fiyata tıklayıp yazın; satıra tıklayınca ürün sağda açılır. Sırayı değiştirmek için ⋮⋮ tutamacından sürükleyin." : "Karta tıklayınca ürün sağda açılır. Sırayı değiştirmek için sağ üstteki ⋮⋮ tutamacından sürükleyin.")),
                 React.createElement("div", { className: "adm-row-gap" },
+                    admCurSwitch(),
                     React.createElement("div", { className: "adm-seg", role: "group", "aria-label": "G\u00F6r\u00FCn\u00FCm" },
                         React.createElement("button", { type: "button", "aria-pressed": admView === "table", onClick: () => setAdmView("table") },
                             React.createElement(AdmIcon, { name: "table", size: 16 }),
@@ -5555,14 +6268,14 @@ function App() {
                             React.createElement("td", { className: "adm-muted adm-ellipsis" }, parts.length ? parts.slice(0, 3).map(p => p.name).join(" · ") + (parts.length > 3 ? ` +${parts.length - 3}` : "") : "—"),
                             React.createElement("td", null, single ? React.createElement("span", { className: "adm-priceedit" },
                                 React.createElement(NumField, { inputMode: "decimal", min: 0, "aria-label": (it.name || "Ürün") + " fiyatı", value: (_a = single.amount) !== null && _a !== void 0 ? _a : "", placeholder: "\u2014", disabled: single.contactOnly, onValue: v => updatePricePart(c.id, it.id, single.id, "amount", v) }),
-                                React.createElement("span", null, "\u20BA"))
+                                React.createElement("span", null, admSym))
                                 : React.createElement("button", { type: "button", className: "adm-linkbtn", onClick: () => admOpenEditor(c.id, it.id, "fiyat") },
                                     parts.length,
                                     " kalem d\u00FCzenle")),
                             React.createElement("td", null, !pi.variant && pi.p.autoCollect === false && parts.length > 1
                                 ? React.createElement("span", { className: "adm-priceedit is-total" },
                                     React.createElement(NumField, { inputMode: "decimal", min: 0, "aria-label": (it.name || "Ürün") + " takım fiyatı", value: (_b = pi.p.manualTotal) !== null && _b !== void 0 ? _b : "", placeholder: "Tak\u0131m fiyat\u0131 gir", onValue: v => updateItem(c.id, it.id, "price", { ...pi.p, manualTotal: v }) }),
-                                    React.createElement("span", null, "\u20BA"))
+                                    React.createElement("span", null, admSym))
                                 : React.createElement("span", { className: "adm-gold" }, pi.value === null ? "—" : admFmt(pi.value) + (pi.variant ? "'den" : ""))),
                             React.createElement("td", null, iss.length ? React.createElement("span", { className: "adm-badge adm-badge-warn", title: iss.join(", ") }, iss[0]) : React.createElement("span", { className: "adm-badge adm-badge-ok" }, "Tamam")));
                     }))),
@@ -5746,6 +6459,7 @@ function App() {
                     React.createElement("span", null, label),
                     id === "urunler" && React.createElement("small", null, admAll.length))),
                 React.createElement("div", { className: "adm-side-spacer" }),
+                !STORAGE_OK && React.createElement("div", { role: "note", className: "storage-warn" }, STORAGE_WARNING),
                 React.createElement("div", { className: "adm-status" },
                     React.createElement("div", null,
                         React.createElement("span", { className: "adm-dot" + (admDirty ? " is-warn" : "") }),
@@ -5773,6 +6487,7 @@ function App() {
                             React.createElement("span", { className: "adm-hide-sm" }, " ve yay\u0131nla"))),
                     React.createElement("button", { type: "button", className: "adm-iconbtn adm-show-sm", "aria-label": "Paneli kapat", onClick: () => requestCloseAdminPanel() },
                         React.createElement(AdmIcon, { name: "x", size: 18 }))),
+                !STORAGE_OK && React.createElement("div", { role: "note", className: "storage-warn storage-warn-sm" }, STORAGE_WARNING),
                 React.createElement("div", { className: "adm-content" },
                     adminSection === "panel" && admRenderDashboard(),
                     adminSection === "urunler" && admRenderProducts(),
@@ -5781,7 +6496,12 @@ function App() {
             admRenderAddPicker());
     }
 
-    return React.createElement("div", { className: "luxury-bg", style: { minHeight: "100vh", backgroundColor: theme.bg, backgroundImage: cssUrl(theme.bgImage) ? `linear-gradient(${theme.bg}cc,${theme.bg}f5),${cssUrl(theme.bgImage)}` : undefined, backgroundSize: "cover", backgroundPosition: "center", color: theme.text, fontFamily: "Inter,system-ui,sans-serif" } },
+    try {
+        document.documentElement.style.setProperty("--page-bg", theme.bg);
+        document.documentElement.dataset.ui = UI_STYLES.includes(theme.ui) ? theme.ui : "apple";
+    }
+    catch (_) { }
+    return React.createElement("div", { className: "luxury-bg", style: { minHeight: "100vh", backgroundColor: theme.bg, backgroundImage: cssUrl(theme.bgImage) ? `linear-gradient(${theme.bg}cc,${theme.bg}f5),${cssUrl(theme.bgImage)}` : undefined, backgroundSize: "cover", backgroundPosition: "center", color: theme.text, fontFamily: "var(--apple-font)", "--th-bg": theme.bg, "--th-card": theme.card, "--th-text": theme.text, "--th-acc": theme.accent, "--th-ink": ink } },
         React.createElement("div", { "aria-hidden": "true", className: "fixed inset-x-0 top-0 z-30 pointer-events-none", style: { height: "calc(max(40px, env(safe-area-inset-top, 0px) + 32px) + 50px)", background: theme.bg, opacity: (pageScrolled || searchOpen) ? 1 : 0, transition: "opacity .2s ease" } }),
         React.createElement("div", { className: "fixed left-4 right-4 z-40", style: { top: "max(40px,calc(env(safe-area-inset-top, 0px) + 32px))" } },
             React.createElement("div", { className: "max-w-5xl mx-auto flex justify-end items-center gap-2" },
@@ -5790,13 +6510,13 @@ function App() {
                     React.createElement("span", { style: { opacity: language === "TR" ? 1 : .72 } }, "TR"),
                     React.createElement("span", { "aria-hidden": "true", style: { opacity: .35 } }, "|"),
                     React.createElement("span", { style: { opacity: language === "EN" ? 1 : .72 } }, "EN")),
-                React.createElement("div", { className: "relative" },
+                siteCurrencies.length > 1 && React.createElement("div", { className: "relative" },
                     React.createElement("button", { type: "button", "aria-haspopup": "menu", "aria-expanded": currencyMenuOpen, "aria-label": (language === "EN" ? "Currency: " : "Para birimi: ") + currency.name, onClick: () => setCurrencyMenuOpen(p => !p), className: "h-11 min-w-[58px] px-3 rounded-full flex items-center justify-center gap-1.5 font-bold text-sm", style: { background: theme.accent, color: ink } },
                         currency.symbol,
                         React.createElement("span", { className: "hidden sm:inline" }, currency.name)),
                     currencyMenuOpen && React.createElement("div", { role: "menu", className: "absolute right-0 mt-2 w-36 rounded-2xl overflow-hidden shadow-2xl border", style: { background: theme.card, borderColor: theme.text + "18", zIndex: 1000 } },
                         React.createElement("div", { className: "px-3 py-2 text-[9px] uppercase tracking-widest font-bold opacity-40 border-b" }, t(language, "currency")),
-                        CURRENCIES.map(c => React.createElement("button", { key: c.id, onClick: () => { chooseViewCurrency(c.id); setCurrencyMenuOpen(false); }, className: "w-full px-3 py-3 flex items-center justify-between text-sm font-semibold", style: { background: currency.id === c.id ? theme.accent + "18" : "transparent", color: theme.text } },
+                        siteCurrencies.map(c => React.createElement("button", { key: c.id, onClick: () => { chooseViewCurrency(c.id); setCurrencyMenuOpen(false); }, className: "w-full px-3 py-3 flex items-center justify-between text-sm font-semibold", style: { background: currency.id === c.id ? theme.accent + "18" : "transparent", color: theme.text } },
                             React.createElement("span", { className: "flex items-center gap-2" },
                                 React.createElement("span", { className: "w-8 h-8 rounded-full flex items-center justify-center font-bold", style: { background: currency.id === c.id ? theme.accent : theme.accent + "18", color: currency.id === c.id ? ink : theme.accent } }, c.symbol),
                                 React.createElement("span", null, c.name)),
@@ -5806,7 +6526,7 @@ function App() {
                         setSearch("");
                     }
                     else
-                        setSearchOpen(true); }, className: "w-11 h-11 rounded-full flex items-center justify-center", style: { background: "rgba(0,0,0,.25)", backdropFilter: "blur(15px)", color: theme.text } },
+                        setSearchOpen(true); }, className: "w-11 h-11 rounded-full flex items-center justify-center apple-glass-btn", style: { background: theme.card + "cc", border: "1px solid " + theme.text + "14", backdropFilter: "saturate(180%) blur(20px)", color: theme.text } },
                     React.createElement(Icon, { type: "search", size: 18 })))),
         searchOpen && React.createElement("div", { className: "fixed inset-x-0 z-40 px-4 pb-3 pt-1", style: { top: "calc(max(40px, env(safe-area-inset-top, 0px) + 32px) + 50px)", background: theme.bg, boxShadow: `0 14px 20px -12px ${theme.bg}` } },
             React.createElement("div", { className: "max-w-5xl mx-auto relative" },
@@ -5826,7 +6546,7 @@ function App() {
                     data.phone && React.createElement("a", { href: "tel:" + data.phone.replace(/\s/g, ""), className: "inline-flex items-center gap-2 px-5 min-h-[44px] rounded-full text-sm font-semibold", style: { background: theme.accent, color: ink } },
                         React.createElement(Icon, { type: "phone", size: 15 }),
                         data.phone),
-                    [["catalog", language === "EN" ? "Catalog" : "Katalog", language === "EN" ? "Download the product catalog without prices (PDF)" : "Fiyatsız ürün kataloğunu indir (PDF)"], ["price", language === "EN" ? "Price List" : "Fiyat Listesi", language === "EN" ? "Download the price list (PDF)" : "Fiyat listesini indir (PDF)"]].map(([kind, label, aria]) => React.createElement("button", { key: kind, type: "button", "aria-label": aria, onClick: () => createPDF(false, kind), disabled: !!pdfBusy, className: "inline-flex items-center gap-2 px-5 min-h-[44px] rounded-full text-sm font-semibold border disabled:opacity-60", style: { borderColor: theme.accent + "80", color: theme.text, background: theme.card + "99" } },
+                    [["catalog", language === "EN" ? "Catalog" : "Katalog", language === "EN" ? "Download the product catalog without prices (PDF)" : "Fiyatsız ürün kataloğunu indir (PDF)"], ["price", language === "EN" ? "Price List" : "Fiyat Listesi", language === "EN" ? "Download the price list (PDF)" : "Fiyat listesini indir (PDF)"]].map(([kind, label, aria]) => React.createElement("button", { key: kind, type: "button", "aria-label": aria, onClick: () => createPDF(false, kind), disabled: !!pdfBusy, className: "inline-flex items-center gap-2 px-5 min-h-[44px] rounded-full text-sm font-semibold border disabled:opacity-60 apple-pill", style: kind === "price" ? { borderColor: theme.accent, color: ink, background: theme.accent } : { borderColor: theme.accent, color: theme.accent, background: "transparent" } },
                         React.createElement(Icon, { type: "download", size: 15 }),
                         pdfBusy === kind ? (language === "EN" ? "Preparing…" : "Hazırlanıyor…") : label,
                         React.createElement("span", { className: "text-[10px] font-bold opacity-80" }, "PDF")))))),
@@ -5849,7 +6569,7 @@ function App() {
                     } }, { passive: false });
                 }, onMouseDown: e => { const el = e.currentTarget; el.dataset.dragging = "1"; el.dataset.dragStartX = String(e.clientX); el.dataset.dragStartScroll = String(el.scrollLeft); }, onMouseMove: e => { const el = e.currentTarget; if (el.dataset.dragging === "1") {
                     el.scrollLeft = Number(el.dataset.dragStartScroll) - (e.clientX - Number(el.dataset.dragStartX));
-                } }, onMouseUp: e => { e.currentTarget.dataset.dragging = "0"; }, onMouseLeave: e => { e.currentTarget.dataset.dragging = "0"; } }, publicCategories.map((category, index) => { const active = category.id === activeCat; return React.createElement("button", { type: "button", key: category.id, "aria-pressed": active, onClick: e => goToCategory(category.id, e.currentTarget), className: "category-chip " + (active ? "active" : ""), style: { background: active ? `linear-gradient(135deg,${theme.accent},${theme.accent}dd)` : `${theme.accent}14`, color: active ? ink : theme.text, borderColor: active ? theme.accent + "70" : theme.text + "12", opacity: active ? 1 : .78, boxShadow: active ? `0 6px 18px ${theme.accent}30` : "none", animation: `categoryEnter .4s cubic-bezier(.22,1,.36,1) ${index * 45}ms both` } }, categoryDisplay(category)); }))),
+                } }, onMouseUp: e => { e.currentTarget.dataset.dragging = "0"; }, onMouseLeave: e => { e.currentTarget.dataset.dragging = "0"; } }, publicCategories.map((category, index) => { const active = category.id === activeCat; return React.createElement("button", { type: "button", key: category.id, "aria-pressed": active, onClick: e => goToCategory(category.id, e.currentTarget), className: "category-chip " + (active ? "active" : ""), style: { background: active ? theme.text : theme.card, color: active ? theme.bg : theme.text, borderColor: active ? theme.text : theme.text + "14", opacity: 1, boxShadow: active ? "0 4px 14px rgba(0,0,0,.12)" : "none", animation: `categoryEnter .4s cubic-bezier(.22,1,.36,1) ${index * 45}ms both` } }, categoryDisplay(category)); }))),
         React.createElement("div", { ref: productsTopRef, "aria-hidden": "true", style: { height: 0 } }),
         React.createElement("main", { key: q ? `search-${q}` : activeCat, className: "product-grid px-4 pt-4 pb-28 max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-3" },
             visibleProducts.length === 0 && React.createElement("div", { className: "col-span-full text-center py-16 opacity-60" }, q ? t(language, "notFound") : t(language, "empty")),
@@ -5931,18 +6651,19 @@ function App() {
                         React.createElement(Icon, { type: "phone", size: 16 }),
                         t(language, "call"))))),
         pdfPreview && React.createElement(PdfPreviewModal, { preview: pdfPreview, language: language, onClose: closePdfPreview, onDownload: downloadPreviewPdf }),
-        toast && React.createElement("div", { role: "status", "aria-live": "polite", style: panelOpen ? { top: 80, bottom: "auto", zIndex: 260 } : { bottom: 24 }, className: "fixed left-1/2 -translate-x-1/2 max-w-[calc(100vw-32px)] z-[250] bg-neutral-900 text-white px-4 py-2.5 rounded-xl shadow-xl text-sm flex items-center gap-2" },
+        toast && React.createElement("div", { role: "status", "aria-live": "polite", style: panelOpen ? { top: 80, bottom: "auto", zIndex: 260 } : { bottom: 24 }, className: "fixed left-1/2 -translate-x-1/2 max-w-[calc(100vw-32px)] z-[250] bg-neutral-900 text-white px-4 py-2.5 rounded-xl shadow-xl apple-toast text-sm flex items-center gap-2" },
             React.createElement(Icon, { type: "check", size: 15 }),
             toast),
         React.createElement(ProductImageLightbox, { fullScreenImage: fullScreenImage, setFullScreenImage: setFullScreenImage, onClose: () => { setFullScreenImage(null); setLightboxZoom(1); } }),
-        pinModal && React.createElement("div", { className: "fixed inset-0 z-[200] bg-black/75 flex items-center justify-center p-4" },
-            React.createElement("div", { className: "w-full max-w-xs bg-neutral-950 border border-neutral-800 rounded-2xl p-6" },
+        pinModal && React.createElement("div", { className: "fixed inset-0 z-[200] bg-black/75 flex items-center justify-center p-4 apple-backdrop" },
+            React.createElement("div", { className: "w-full max-w-xs bg-neutral-950 border border-neutral-800 rounded-2xl p-6 apple-pin" },
                 React.createElement("div", { className: "flex items-center gap-2 mb-4 text-white" },
                     React.createElement(Icon, { type: "lock", size: 18 }),
                     React.createElement("h2", { className: "font-bold" }, t("TR", "admin"))),
                 React.createElement("input", { autoFocus: true, type: "password", inputMode: "numeric", maxLength: "8", value: pinInput, onChange: e => { setPinInput(e.target.value.replace(/\D/g, "")); setPinError(false); }, onKeyDown: e => e.key === "Enter" && tryUnlock(), placeholder: "PIN", className: "admin-input tracking-[.3em]" }),
                 pinError && React.createElement("div", { className: "text-xs text-red-400 mt-2" }, t("TR", "wrongPin")),
                 React.createElement("div", { className: "text-[11px] text-neutral-500 mt-2 mb-4" }, hasAdminPin() ? "Yönetim PIN'inizi girin." : "İlk kurulum: bu cihaz için 4-8 haneli yeni bir PIN belirleyin."),
+                !STORAGE_OK && React.createElement("div", { role: "note", className: "storage-warn mb-4" }, STORAGE_WARNING),
                 React.createElement("div", { className: "flex gap-2" },
                     React.createElement("button", { onClick: () => setPinModal(false), className: "flex-1 py-2.5 bg-neutral-800 rounded-lg text-sm text-neutral-300" }, t("TR", "cancel")),
                     React.createElement("button", { onClick: tryUnlock, className: "flex-1 py-2.5 rounded-lg text-sm font-bold", style: { background: theme.accent, color: ink } }, hasAdminPin() ? t("TR", "login") : "PIN Oluştur")))),
@@ -5986,7 +6707,7 @@ function App() {
                                     React.createElement("input", { type: "range", min: "40", max: "220", value: data.logo.height || 110, onChange: e => setPath(["logo", "height"], Number(e.target.value)), className: "w-full" }))),
                             React.createElement("div", { className: "mt-4" },
                                 React.createElement(AdminLabel, null, "Logo Konumu"),
-                                React.createElement("div", { className: "grid grid-cols-3 gap-2" }, [["left", "Sol"], ["center", "Orta"], ["right", "Sağ"]].map(([v, l]) => React.createElement("button", { key: v, onClick: () => setPath(["logo", "position"], v), className: "py-2 rounded-lg text-xs font-semibold", style: { background: data.logo.position === v ? theme.accent : "#1c1c1c", color: "#fff" } }, l))))),
+                                React.createElement("div", { className: "grid grid-cols-3 gap-2" }, [["left", "Sol"], ["center", "Orta"], ["right", "Sağ"]].map(([v, l]) => React.createElement("button", { key: v, onClick: () => setPath(["logo", "position"], v), className: "py-2 rounded-lg text-xs font-semibold", style: { background: data.logo.position === v ? theme.accent : "#F2F2F7", color: data.logo.position === v ? ink : "#1D1D1F" } }, l))))),
                         React.createElement("div", { className: "bg-neutral-900 rounded-xl p-4 mb-5" },
                             React.createElement("div", { className: "text-[10px] uppercase tracking-widest font-bold text-amber-500 mb-3" }, "Katalog Yedekleme"),
                             React.createElement("div", { className: "grid grid-cols-2 gap-2" },
@@ -5998,11 +6719,20 @@ function App() {
                                     "Yedekten Y\u00FCkle")),
                             React.createElement("input", { ref: setImportRef, type: "file", accept: "application/json,.json", className: "hidden", onChange: handleImport })),
                         React.createElement("div", { className: "h-px bg-neutral-800 my-5" }),
-                        React.createElement("div", { className: "text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-3" }, "Haz\u0131r Temalar"),
-                        React.createElement("div", { className: "grid grid-cols-3 gap-2 mb-5" }, THEMES.map(tt => React.createElement("button", { key: tt.id, onClick: () => updateData(x => { x.theme = { ...x.theme, id: tt.id, name: tt.name, bg: tt.bg, card: tt.card, accent: tt.accent, text: tt.text }; }), "aria-pressed": theme.bg === tt.bg && theme.accent === tt.accent, "aria-label": "Tema: " + tt.name, className: "rounded-xl overflow-hidden border-2", style: { borderColor: theme.bg === tt.bg && theme.accent === tt.accent ? tt.accent : "#292524" } },
-                            React.createElement("div", { style: { height: 35, background: tt.bg, display: "flex", alignItems: "center", justifyContent: "center" } },
-                                React.createElement("span", { style: { width: 15, height: 15, borderRadius: "50%", background: tt.accent } })),
-                            React.createElement("div", { className: "bg-neutral-900 py-1 text-[9px]" }, tt.name)))),
+                        React.createElement("div", { className: "text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-3" }, "Tema \u015Eablonlar\u0131"),
+                        React.createElement("div", { className: "grid grid-cols-2 gap-3 mb-5" }, THEMES.map(tt => { const on = theme.id === tt.id; return React.createElement("button", { key: tt.id, type: "button", onClick: () => updateData(x => { x.theme = { ...x.theme, id: tt.id, name: tt.name, ui: tt.ui, bg: tt.bg, card: tt.card, accent: tt.accent, text: tt.text }; }), "aria-pressed": on, "aria-label": "Tema şablonu: " + tt.name, className: "theme-tpl" + (on ? " is-on" : ""), "data-ui-preview": tt.ui, style: { "--pv-bg": tt.bg, "--pv-card": tt.card, "--pv-acc": tt.accent, "--pv-text": tt.text, "--pv-ink": inkOn(tt.accent) } },
+                            React.createElement("span", { className: "theme-tpl-stage", "aria-hidden": "true" },
+                                React.createElement("span", { className: "theme-tpl-card" },
+                                    React.createElement("span", { className: "theme-tpl-img" }),
+                                    React.createElement("span", { className: "theme-tpl-line" }),
+                                    React.createElement("span", { className: "theme-tpl-line short" })),
+                                React.createElement("span", { className: "theme-tpl-side" },
+                                    React.createElement("span", { className: "theme-tpl-btn" }, "Fiyat Listesi"),
+                                    React.createElement("span", { className: "theme-tpl-btn ghost" }, "Katalog"),
+                                    React.createElement("span", { className: "theme-tpl-chip" }, "Kategori"))),
+                            React.createElement("span", { className: "theme-tpl-meta" },
+                                React.createElement("b", null, tt.name, on ? " \u2713" : ""),
+                                React.createElement("small", null, tt.desc))); })),
                         React.createElement(ColorInput, { label: "Arka Plan Rengi", value: theme.bg, onChange: v => setPath(["theme", "bg"], v) }),
                         React.createElement(ColorInput, { label: "Kart Rengi", value: theme.card, onChange: v => setPath(["theme", "card"], v) }),
                         React.createElement(ColorInput, { label: "Vurgu Rengi", value: theme.accent, onChange: v => setPath(["theme", "accent"], v) }),
@@ -6012,25 +6742,54 @@ function App() {
                             data.cardImgSize,
                             "px"),
                         React.createElement("input", { type: "range", min: "100", max: "320", value: data.cardImgSize, onChange: e => setPath(["cardImgSize"], Number(e.target.value)), className: "w-full mb-5" }),
+                        React.createElement("div", { className: "text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-3" }, "AI \u00C7eviri (\u0130ngilizce)"),
+                        React.createElement("div", { className: "bg-neutral-900 rounded-xl p-4 mb-5" },
+                            React.createElement("label", { className: "flex items-center justify-between gap-3 mb-3 cursor-pointer" },
+                                React.createElement("span", null,
+                                    React.createElement("span", { className: "block text-sm font-bold" }, "Claude ile AI \u00E7eviri"),
+                                    React.createElement("span", { className: "block text-[11px] text-neutral-400 mt-1" }, aiCfg.provider === "claude" ? "A\u00E7\u0131k: \u00E7eviriler mobilya terimlerini bilen AI ile yap\u0131l\u0131r." : "Kapal\u0131: mobilya s\u00F6zl\u00FC\u011F\u00FC + taray\u0131c\u0131 \u00E7evirisi + \u00FCcretsiz \u00E7eviri servisi kullan\u0131l\u0131r.")),
+                                React.createElement("button", { type: "button", role: "switch", "aria-checked": aiCfg.provider === "claude", "aria-label": "Claude ile AI \u00E7eviri", onClick: () => updateAiCfg({ provider: aiCfg.provider === "claude" ? "off" : "claude" }), className: "ui-switch" + (aiCfg.provider === "claude" ? " is-on" : "") },
+                                    React.createElement("span", null))),
+                            aiCfg.provider === "claude" && React.createElement("div", null,
+                                React.createElement("label", { className: "block mb-3" },
+                                    React.createElement(AdminLabel, null, "Anthropic API anahtar\u0131"),
+                                    React.createElement("input", { className: "admin-input", type: "password", autoComplete: "off", spellCheck: "false", placeholder: "sk-ant-\u2026", value: aiCfg.key, onChange: e => updateAiCfg({ key: e.target.value.slice(0, 300) }) })),
+                                React.createElement("label", { className: "block mb-3" },
+                                    React.createElement(AdminLabel, null, "Model"),
+                                    React.createElement("select", { className: "admin-input", value: aiCfg.model, onChange: e => updateAiCfg({ model: e.target.value }) }, AI_MODELS.map(([id, label]) => React.createElement("option", { key: id, value: id }, label)))),
+                                React.createElement("div", { className: "text-[11px] text-neutral-400 mb-3" }, "Anahtar yaln\u0131zca bu cihazda saklan\u0131r; sitede, kataloğun kayd\u0131nda ve JSON yede\u011Finde yer almaz. Ziyaret\u00E7iler AI kullanmaz; \u00E7eviri sadece siz kaydedince yap\u0131l\u0131r."),
+                                React.createElement("button", { type: "button", onClick: testAiTranslation, disabled: aiCfg.key.trim().length < 20, className: "w-full py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-xs font-bold mb-2 disabled:opacity-40" }, "Ba\u011Flant\u0131y\u0131 test et"),
+                                aiTest && React.createElement("div", { role: "status", className: "text-[11px] mb-2 " + (aiTest.startsWith("Hata") ? "text-red-400" : "text-neutral-300") }, aiTest)),
+                            React.createElement("button", { type: "button", onClick: retranslateAll, disabled: trBusy > 0, className: "w-full py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-xs font-bold disabled:opacity-40" }, trBusy > 0 ? "\u00C7evriliyor\u2026 (" + trBusy + ")" : "T\u00FCm \u0130ngilizce metinleri yeniden \u00E7evir")),
                         React.createElement(AdminLabel, null, "Y\u00F6netim PIN'ini De\u011Fi\u015Ftir"),
                         React.createElement("div", { className: "flex gap-2 mb-5" },
                             React.createElement("input", { className: "admin-input flex-1", type: "password", value: newPinInput, placeholder: "Yeni PIN (4-8 hane)", inputMode: "numeric", maxLength: "8", autoComplete: "new-password", onChange: e => setNewPinInput(e.target.value.replace(/\D/g, "")), style: { letterSpacing: ".3em" } }),
                             React.createElement("button", { type: "button", onClick: changePin, className: "px-4 rounded-lg text-sm font-bold shrink-0", style: { background: theme.accent, color: ink } }, "G\u00FCncelle")),
-                        React.createElement("button", { onClick: resetDefault, className: "w-full py-2.5 bg-neutral-900 border border-neutral-700 rounded-lg text-xs text-red-400" }, "Varsay\u0131lan Ayarlara D\u00F6n")),
+                        React.createElement("button", { onClick: resetDefault, className: "w-full py-2.5 bg-neutral-900 border border-neutral-700 rounded-lg text-xs text-red-400" }, "Varsay\u0131lan Ayarlara D\u00F6n"),
+                        React.createElement("button", { onClick: resetAllContent, className: "w-full mt-2 py-2.5 bg-red-950 border border-red-900 rounded-lg text-xs font-bold text-red-400" }, "T\u00FCm \u0130\u00E7eri\u011Fi S\u0131f\u0131rla (Bo\u015F \u015Eablon)")),
                     React.createElement("div", { className: adminSection === "fiyat" ? "" : "hidden" },
                         React.createElement("div", { className: "text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-3" }, t("TR", "currency")),
                         React.createElement("div", { className: "bg-neutral-900 rounded-xl p-4 mb-5" },
-                            React.createElement("div", { className: "text-xs text-neutral-400 mb-3" }, "Fiyatlar TL olarak girilir. Kur de\u011Ferleri manuel belirlenir."),
-                            React.createElement("div", { className: "grid grid-cols-3 gap-2 mb-4" }, CURRENCIES.map(c => React.createElement("button", { key: c.id, onClick: () => setPath(["currency", "selected"], c.id), className: "py-2.5 rounded-lg text-xs font-bold", style: { background: currency.id === c.id ? theme.accent : "#171717", color: currency.id === c.id ? "#fff" : "#999", border: "1px solid " + (currency.id === c.id ? theme.accent : "#333") } },
-                                c.symbol,
-                                " ",
-                                c.name))),
-                            React.createElement("label", { className: "block mb-3" },
-                                React.createElement(AdminLabel, null, "1 USD = Ka\u00E7 TL?"),
-                                React.createElement(NumField, { className: "admin-input", inputMode: "decimal", "aria-label": "1 USD = kaç TL", placeholder: "Örn. 41,25", format: v => String(v).replace(".", ","), parse: v => { const n = Number(String(v).replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : null; }, value: data.currency.usdRate, allowEmpty: false, min: 0.0001, max: 100000, onValue: n => setPath(["currency", "usdRate"], n) })),
-                            React.createElement("label", { className: "block" },
-                                React.createElement(AdminLabel, null, "1 EUR = Ka\u00E7 TL?"),
-                                React.createElement(NumField, { className: "admin-input", inputMode: "decimal", "aria-label": "1 EUR = kaç TL", placeholder: "Örn. 41,25", format: v => String(v).replace(".", ","), parse: v => { const n = Number(String(v).replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : null; }, value: data.currency.eurRate, allowEmpty: false, min: 0.0001, max: 100000, onValue: n => setPath(["currency", "eurRate"], n) })))),
+                            React.createElement("label", { className: "flex items-center justify-between gap-3 mb-4 cursor-pointer" },
+                                React.createElement("span", null,
+                                    React.createElement("span", { className: "block text-sm font-bold" }, "Kur ile otomatik \u00E7evir"),
+                                    React.createElement("span", { className: "block text-[11px] text-neutral-400 mt-1" }, curEnabled(data) ? "A\u00E7\u0131k: fiyatlar\u0131 TL girin, USD ve EUR a\u015Fa\u011F\u0131daki kurla hesaplan\u0131r." : "Kapal\u0131: her para biriminin fiyat\u0131n\u0131 \u00FCr\u00FCnlerde ayr\u0131 ayr\u0131 girin.")),
+                                React.createElement("button", { type: "button", role: "switch", "aria-checked": curEnabled(data), "aria-label": "Kur ile otomatik \u00E7evir", onClick: () => setCurrencyEnabled(!curEnabled(data)), className: "ui-switch" + (curEnabled(data) ? " is-on" : "") },
+                                    React.createElement("span", null))),
+                            curEnabled(data) ? React.createElement("div", null,
+                                React.createElement("label", { className: "block mb-3" },
+                                    React.createElement(AdminLabel, null, "1 USD = Ka\u00E7 TL?"),
+                                    React.createElement(NumField, { className: "admin-input", inputMode: "decimal", "aria-label": "1 USD = kaç TL", placeholder: "Kur girin (ör. 41,25)", parse: v => { const n = Number(String(v).replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : null; }, value: data.currency.usdRate, allowEmpty: true, keepDraft: true, min: 0.0001, max: 100000, onValue: n => setPath(["currency", "usdRate"], n) })),
+                                React.createElement("label", { className: "block mb-2" },
+                                    React.createElement(AdminLabel, null, "1 EUR = Ka\u00E7 TL?"),
+                                    React.createElement(NumField, { className: "admin-input", inputMode: "decimal", "aria-label": "1 EUR = kaç TL", placeholder: "Kur girin (ör. 41,25)", parse: v => { const n = Number(String(v).replace(/\s/g, "").replace(",", ".")); return Number.isFinite(n) ? n : null; }, value: data.currency.eurRate, allowEmpty: true, keepDraft: true, min: 0.0001, max: 100000, onValue: n => setPath(["currency", "eurRate"], n) })),
+                                React.createElement("div", { className: "text-[11px] text-neutral-400 mb-4" }, "Kur bo\u015F b\u0131rak\u0131l\u0131rsa o para birimi sitede g\u00F6sterilmez. Virg\u00FCl veya nokta ile yazabilirsiniz; yazd\u0131\u011F\u0131n\u0131z gibi kal\u0131r.")) : React.createElement("div", { className: "mb-4" },
+                                React.createElement(AdminLabel, null, "Fiyat girdi\u011Fim para birimi"),
+                                React.createElement("div", { className: "grid grid-cols-3 gap-2 mb-2" }, CURRENCIES.map(c => React.createElement("button", { key: c.id, type: "button", onClick: () => setEditCurrency(c.id), "aria-pressed": curEditId(data) === c.id, className: "py-2.5 rounded-lg text-xs font-bold", style: { background: curEditId(data) === c.id ? theme.accent : "#FFFFFF", color: curEditId(data) === c.id ? ink : "#424245", border: "1px solid " + (curEditId(data) === c.id ? theme.accent : "#D2D2D7") } }, c.symbol + " " + c.name))),
+                                React.createElement("div", { className: "text-[11px] text-neutral-400" }, "\u00D6nce TL fiyatlar\u0131n\u0131 girin, sonra USD'ye ge\u00E7ip dolar fiyatlar\u0131n\u0131 girin. Fiyat\u0131 girilmeyen para birimi sitede g\u00F6sterilmez; o \u00FCr\u00FCnde \u201CFiyat i\u00E7in ileti\u015Fime ge\u00E7in\u201D yazar.")),
+                            React.createElement(AdminLabel, null, "Sitede ve PDF'te varsay\u0131lan para birimi"),
+                            React.createElement("div", { className: "grid grid-cols-3 gap-2" }, CURRENCIES.map(c => { const ok = availableCurrencies(data).includes(c.id); const on = (data.currency?.selected || "TRY") === c.id; return React.createElement("button", { key: c.id, type: "button", disabled: !ok, title: ok ? "" : (curEnabled(data) ? "\u00D6nce kur girin" : "Bu para biriminde fiyat yok"), onClick: () => setPath(["currency", "selected"], c.id), className: "py-2.5 rounded-lg text-xs font-bold disabled:opacity-40", style: { background: on ? theme.accent : "#FFFFFF", color: on ? ink : "#424245", border: "1px solid " + (on ? theme.accent : "#D2D2D7") } }, c.symbol + " " + c.name); }))),
+                    ),
                     React.createElement("div", { className: adminSection === "katalog" ? "" : "hidden" },
                         React.createElement("div", { id: "catalog-tab" },
                             React.createElement("div", { className: "mb-4 rounded-xl p-3", style: { background: theme.accent + "12", border: "1px solid " + theme.accent + "25" } },
@@ -6065,7 +6824,7 @@ function App() {
                                         React.createElement("button", { type: "button", "aria-label": "Yukar\u0131 ta\u015F\u0131", title: "Yukar\u0131", disabled: categoryIndex === 0, onClick: () => moveCategory(category.id, -1), className: "w-8 h-[19px] rounded bg-neutral-800 flex items-center justify-center disabled:opacity-25" }, React.createElement(Icon, { type: "up", size: 12 })),
                                         React.createElement("button", { type: "button", "aria-label": "A\u015Fa\u011F\u0131 ta\u015F\u0131", title: "A\u015Fa\u011F\u0131", disabled: categoryIndex === categories.length - 1, onClick: () => moveCategory(category.id, 1), className: "w-8 h-[19px] rounded bg-neutral-800 flex items-center justify-center disabled:opacity-25" }, React.createElement(Icon, { type: "down", size: 12 }))),
                                     React.createElement("button", { type: "button", "aria-label": "Kategoriyi sil", title: "Kategoriyi sil", onClick: () => deleteCategory(category.id), className: "h-10 w-10 shrink-0 rounded-lg bg-red-950 text-red-400 flex items-center justify-center" }, React.createElement(Icon, { type: "trash", size: 15 })),
-                                    React.createElement("button", { type: "button", "aria-expanded": !!openCategories[category.id], onClick: () => toggleCategory(category.id), className: "h-10 shrink-0 px-3 rounded-lg text-[11px] whitespace-nowrap flex items-center gap-1.5 font-semibold", style: { background: openCategories[category.id] ? theme.accent : "#262626", color: openCategories[category.id] ? ink : "#aaa" } },
+                                    React.createElement("button", { type: "button", "aria-expanded": !!openCategories[category.id], onClick: () => toggleCategory(category.id), className: "h-10 shrink-0 px-3 rounded-lg text-[11px] whitespace-nowrap flex items-center gap-1.5 font-semibold", style: { background: openCategories[category.id] ? theme.accent : "#F2F2F7", color: openCategories[category.id] ? ink : "#424245" } },
                                         t("TR", "productsBtn"),
                                         React.createElement(Icon, { type: openCategories[category.id] ? "up" : "down", size: 13 }))),
                                 openCategories[category.id] && React.createElement("div", { className: "p-2 pt-0" },
@@ -6093,7 +6852,7 @@ function App() {
                                                     "Foto\u011Fraflar (",
                                                     imgs.length,
                                                     ") \u00B7 ilk foto\u011Fraf kapak olarak kullan\u0131l\u0131r"),
-                                                React.createElement("div", { className: "flex flex-wrap gap-1.5" }, imgs.map((src, i) => React.createElement("div", { key: i + "-" + String(src).length, className: "relative w-16 h-16 rounded-md overflow-hidden border-2", style: { borderColor: i === 0 ? theme.accent : "#404040", backgroundImage: cssUrl(src) || undefined, backgroundSize: "cover", backgroundPosition: "center" } },
+                                                React.createElement("div", { className: "flex flex-wrap gap-1.5" }, imgs.map((src, i) => React.createElement("div", { key: i + "-" + String(src).length, className: "relative w-16 h-16 rounded-md overflow-hidden border-2", style: { borderColor: i === 0 ? theme.accent : "#D2D2D7", backgroundImage: cssUrl(src) || undefined, backgroundSize: "cover", backgroundPosition: "center" } },
                                                     React.createElement("button", { type: "button", "aria-label": `${i + 1}. fotoğrafı sil`, onClick: () => removeProductImage(category.id, item.id, i), className: "thumb-btn absolute top-0 right-0 w-7 h-7 bg-black/75 text-white flex items-center justify-center rounded-bl-md" },
                                                         React.createElement(Icon, { type: "x", size: 13 })),
                                                     i === 0 ? React.createElement("span", { className: "absolute bottom-0 inset-x-0 text-[9px] font-bold text-center", style: { background: theme.accent, color: ink } }, "KAPAK") : React.createElement("button", { type: "button", "aria-label": `${i + 1}. fotoğrafı kapak yap`, onClick: () => makeCoverImage(category.id, item.id, i), className: "thumb-btn absolute bottom-0 inset-x-0 h-5 text-[9px] font-bold bg-black/70 text-white" }, "Kapak yap")))));
@@ -6130,7 +6889,7 @@ function App() {
                                                     React.createElement("input", { type: "checkbox", checked: !!part.contactOnly, onChange: e => updatePricePart(category.id, item.id, part.id, "contactOnly", e.target.checked) }),
                                                     t("TR", "contactOnly")),
                                                 categoryLayoutOf(data, category.id) === "models" && React.createElement("div", { className: "flex items-center gap-2 mt-2" },
-                                                    React.createElement("div", { className: "w-12 h-12 rounded-md shrink-0 border border-neutral-700", style: { backgroundColor: "#1c1c1c", backgroundImage: cssUrl(part.image) || undefined, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" } }),
+                                                    React.createElement("div", { className: "w-12 h-12 rounded-md shrink-0 border border-neutral-700", style: { backgroundColor: "#F2F2F7", backgroundImage: cssUrl(part.image) || undefined, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" } }),
                                                     React.createElement("button", { type: "button", onClick: () => document.getElementById("part-image-" + part.id)?.click(), className: "h-9 px-3 rounded-lg bg-neutral-700 border border-neutral-600 text-[11px] font-bold flex items-center gap-1.5" },
                                                         React.createElement(Icon, { type: "upload", size: 12 }),
                                                         part.image ? "Fotoğrafı Değiştir" : "Fotoğraf Ekle"),
@@ -6157,7 +6916,7 @@ function App() {
                             React.createElement("div", { className: "text-xs text-neutral-400 mb-3" }, "Fiyat i\u00E7ermez. \u00DCr\u00FCn g\u00F6rselleri, a\u00E7\u0131klamalar ve \u00F6l\u00E7\u00FCler kullan\u0131l\u0131r. Sitedeki \"Katalog\" d\u00FC\u011Fmesi bu \u015Fablonu kullan\u0131r."),
                             React.createElement("div", { role: "radiogroup", "aria-label": "Katalog \u015Fablonu", className: "grid grid-cols-2 gap-2 mb-4" }, PDF_CATALOG_TEMPLATES.map(tp => {
                                 const active = (data.pdf?.catalogTemplate || "vitrin") === tp.id;
-                                return React.createElement("button", { key: tp.id, type: "button", role: "radio", "aria-checked": active, onClick: () => setPath(["pdf", "catalogTemplate"], tp.id), className: "text-left rounded-xl p-2.5 border transition-colors", style: { borderColor: active ? theme.accent : "#333", background: active ? theme.accent + "18" : "#141414" } },
+                                return React.createElement("button", { key: tp.id, type: "button", role: "radio", "aria-checked": active, onClick: () => setPath(["pdf", "catalogTemplate"], tp.id), className: "text-left rounded-xl p-2.5 border transition-colors", style: { borderColor: active ? theme.accent : "#D2D2D7", background: active ? theme.accent + "18" : "#FFFFFF" } },
                                     React.createElement(CatalogTemplateThumb, { id: tp.id, accent: theme.accent }),
                                     React.createElement("div", { className: "mt-2 text-xs font-bold flex items-center gap-1.5" },
                                         active && React.createElement(Icon, { type: "check", size: 13 }),
@@ -6193,8 +6952,8 @@ function App() {
                                             category.items.length,
                                             " \u00FCr\u00FCn")),
                                     React.createElement("span", { className: "flex gap-1.5 shrink-0" },
-                                        React.createElement("select", { "aria-label": category.name + " fiyat listesi düzeni", value: categoryLayoutOf(data, category.id), onChange: e => setPath(["pdf", "categoryLayouts", category.id], e.target.value), className: "admin-input shrink-0", style: { width: 140, padding: "7px 8px", fontSize: 12 } }, PDF_CATEGORY_LAYOUTS.map(l => React.createElement("option", { key: l.id, value: l.id }, l.name))),
-                                        React.createElement("select", { "aria-label": category.name + " vitrin katalog düzeni", title: "Vitrin katalog şablonunda sayfa düzeni", value: vitrinModeOf(data, category.id), onChange: e => setPath(["pdf", "vitrinModes", category.id], e.target.value), className: "admin-input shrink-0", style: { width: 110, padding: "7px 8px", fontSize: 12 } }, PDF_VITRIN_MODES.map(m => React.createElement("option", { key: m.id, value: m.id }, "Vitrin: " + m.name))))))),
+                                        React.createElement("select", { "aria-label": category.name + " fiyat listesi düzeni", value: data.pdf?.categoryLayouts?.[category.id] || "auto", onChange: e => setPath(["pdf", "categoryLayouts", category.id], e.target.value), className: "admin-input shrink-0", style: { width: 170, padding: "7px 8px", fontSize: 12 } }, PDF_CATEGORY_LAYOUTS.map(l => React.createElement("option", { key: l.id, value: l.id }, l.id === "auto" ? "Akıllı → " + (PDF_CATEGORY_LAYOUTS.find(x => x.id === autoLayoutFor(category)) || {}).name : l.name))),
+                                        React.createElement("select", { "aria-label": category.name + " vitrin katalog düzeni", title: "Vitrin katalog şablonunda sayfa düzeni", value: data.pdf?.vitrinModes?.[category.id] || "auto", onChange: e => setPath(["pdf", "vitrinModes", category.id], e.target.value), className: "admin-input shrink-0", style: { width: 110, padding: "7px 8px", fontSize: 12 } }, PDF_VITRIN_MODES.map(m => React.createElement("option", { key: m.id, value: m.id }, "Vitrin: " + m.name))))))),
                             React.createElement("div", { className: "text-xs text-neutral-400 mb-4" }, "Web sitesindeki kategori, \u00FCr\u00FCn, g\u00F6rsel, \u00F6l\u00E7\u00FC, fiyat, dil ve para birimi s\u0131ras\u0131 aynen PDF'ye aktar\u0131l\u0131r. KG ve M\u00B3 kullan\u0131lmaz."),
                             React.createElement("div", { className: "grid grid-cols-2 gap-2 mb-4" },
                                 React.createElement("button", { type: "button", onClick: () => createPDF(false, "price"), disabled: !!pdfBusy, className: "min-h-[44px] py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 disabled:opacity-50", style: { background: theme.accent, color: ink } },
